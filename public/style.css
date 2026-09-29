@@ -159,7 +159,7 @@ details summary {
 }
 details summary::-webkit-details-marker { display: none; }
 details summary::after { content: "+"; color: var(--pine); }
-details[open] summary::after { content: "\u2013"; }
+details[open] summary::after { content: "–"; }
 details p { color: var(--muted); margin: 0.7rem 0 0.2rem; }
 .faq-tools { margin: 1rem 0 0.4rem; }
 
