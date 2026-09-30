@@ -312,7 +312,6 @@ if (form) {
     }
     const button = form.querySelector("button[type=submit]");
     const errorEl = form.querySelector("[data-form-error]");
-    const subject = (lang === "en" ? en["form.subject"] : "Anfrage von") + " " + values.company;
     const sendError = lang === "en"
       ? en["form.sendError"]
       : "Die Anfrage konnte nicht gesendet werden. Bitte noch einmal versuchen oder direkt an kontakt@hitekki.ch schreiben.";
@@ -321,67 +320,30 @@ if (form) {
       button.disabled = true;
       button.textContent = lang === "en" ? en["form.sending"] : "Wird gesendet…";
     }
-    let frame = document.querySelector("iframe[name=hitekki-send]");
-    if (!frame) {
-      frame = document.createElement("iframe");
-      frame.name = "hitekki-send";
-      frame.hidden = true;
-      frame.setAttribute("aria-hidden", "true");
-      document.body.appendChild(frame);
-    }
-    const outbound = document.createElement("form");
-    outbound.method = "POST";
-    outbound.action = "https://email.gosecureserver.in/api/send.php";
-    outbound.target = "hitekki-send";
-    outbound.acceptCharset = "UTF-8";
-    const fields = {
-      to: "kontakt@hitekki.ch",
-      name: values.name,
-      company: values.company,
-      email: values.email,
-      phone: values.phone,
-      subject: subject,
-      message: values.message,
-      hp_email: ""
-    };
-    Object.keys(fields).forEach((key) => {
-      const input = document.createElement("input");
-      input.type = "hidden";
-      input.name = key;
-      input.value = fields[key];
-      outbound.appendChild(input);
-    });
-    document.body.appendChild(outbound);
-    let settled = false;
-    const finishOk = () => {
-      if (settled) return;
-      settled = true;
-      window.clearTimeout(timer);
-      outbound.remove();
-      form.classList.add("hide");
-      if (thanks) thanks.classList.add("show");
-    };
-    const finishErr = () => {
-      if (settled) return;
-      settled = true;
-      outbound.remove();
-      if (errorEl) errorEl.textContent = sendError;
-      if (button) {
-        button.disabled = false;
-        button.textContent = lang === "en" ? en["form.submit"] : "Anfrage senden";
-      }
-    };
-    const timer = window.setTimeout(finishErr, 12000);
-    const go = () => {
-      frame.dataset.ready = "1";
-      frame.onload = finishOk;
-      window.setTimeout(() => outbound.submit(), 0);
-    };
-    if (frame.dataset.ready === "1") go();
-    else {
-      frame.onload = () => go();
-      frame.src = "about:blank";
-    }
+    fetch("/api/anfrage", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        name: values.name,
+        company: values.company,
+        email: values.email,
+        phone: values.phone,
+        message: values.message,
+        hp_email: honey
+      })
+    }).then((response) => response.json().then((result) => ({ ok: response.ok, result })).catch(() => ({ ok: false, result: {} })))
+      .then(({ ok, result }) => {
+        if (!ok || !result.ok) throw new Error("send");
+        form.classList.add("hide");
+        if (thanks) thanks.classList.add("show");
+      })
+      .catch(() => {
+        if (errorEl) errorEl.textContent = sendError;
+        if (button) {
+          button.disabled = false;
+          button.textContent = lang === "en" ? en["form.submit"] : "Anfrage senden";
+        }
+      });
   });
 }
 
