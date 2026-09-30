@@ -180,7 +180,9 @@ const en = {
   "form.message": "Message",
   "form.ph": "What is it about – sales, a site, visibility?",
   "form.submit": "Send enquiry",
-  "form.note": "Based in Zurich. I call back after reviewing the enquiry – not the other way round.",
+  "form.sending": "Sending…",
+  "form.note": "Based in Zurich. The enquiry comes straight to me. I call back after reviewing it.",
+  "form.sendError": "The enquiry could not be sent. Please try again, or write directly to kontakt@hitekki.ch.",
   "form.thanks": "Thank you for the enquiry.",
   "form.thanksBody": "I check whether a mandate fits, and reply as a rule within two working days.",
   "err.name": "Please enter your name.",
@@ -301,19 +303,50 @@ if (form) {
       el.textContent = errors[el.getAttribute("data-err")] || "";
     });
     if (Object.keys(errors).length) return;
-    const subject = (lang === "en" ? en["form.subject"] : "Anfrage von") + " " + values.company;
-    const body = [
-      "Name: " + values.name,
-      "Firma: " + values.company,
-      "E-Mail: " + values.email,
-      "Telefon: " + values.phone,
-      "",
-      values.message
-    ].join("\n");
-    window.location.href = "mailto:kontakt@hitekki.ch?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-    form.classList.add("hide");
+    const honey = String(data.get("_honey") || "").trim();
     const thanks = document.querySelector("[data-thanks]");
-    if (thanks) thanks.classList.add("show");
+    if (honey) {
+      form.classList.add("hide");
+      if (thanks) thanks.classList.add("show");
+      return;
+    }
+    const button = form.querySelector("button[type=submit]");
+    const errorEl = form.querySelector("[data-form-error]");
+    const subject = (lang === "en" ? en["form.subject"] : "Anfrage von") + " " + values.company;
+    const sendError = lang === "en"
+      ? en["form.sendError"]
+      : "Die Anfrage konnte nicht gesendet werden. Bitte noch einmal versuchen oder direkt an kontakt@hitekki.ch schreiben.";
+    if (errorEl) errorEl.textContent = "";
+    if (button) {
+      button.disabled = true;
+      button.textContent = lang === "en" ? en["form.sending"] : "Wird gesendet…";
+    }
+    fetch("https://formsubmit.co/ajax/kontakt@hitekki.ch", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify({
+        name: values.name,
+        company: values.company,
+        email: values.email,
+        phone: values.phone,
+        message: values.message,
+        _subject: subject,
+        _template: "table",
+        _captcha: "false"
+      })
+    }).then((response) => response.json().then((result) => ({ ok: response.ok, result })))
+      .then(({ ok, result }) => {
+        if (!ok || result.success === false || result.success === "false") throw new Error("send");
+        form.classList.add("hide");
+        if (thanks) thanks.classList.add("show");
+      })
+      .catch(() => {
+        if (errorEl) errorEl.textContent = sendError;
+        if (button) {
+          button.disabled = false;
+          button.textContent = lang === "en" ? en["form.submit"] : "Anfrage senden";
+        }
+      });
   });
 }
 
