@@ -19,6 +19,17 @@ const en = {
   "film.kicker": "Film",
   "film.title": "The product is not the problem.",
   "film.body": "Tom has the offer. The customers are missing. In about a minute, how HiTekKi steps in.",
+  "film.jump": "Jump in the film",
+  "ch.tom": "Tom",
+  "ch.problem": "Customers",
+  "ch.search": "Searching",
+  "ch.late": "Last minute",
+  "ch.hi": "HiTekKi",
+  "ch.analyse": "Analysis",
+  "ch.akquise": "Prospecting",
+  "ch.timo": "Timo",
+  "ch.link": "Introduction",
+  "ch.close": "Be like Tom",
   "pillars.kicker": "Services",
   "pillars.title": "What HiTekKi takes on",
   "pillars.body": "Three fields, one operator. Tech and visibility serve the sale – not the other way round.",
@@ -276,6 +287,45 @@ if (menuBtn && mobile) {
       menuBtn.setAttribute("aria-expanded", "false");
     });
   });
+}
+
+const film = document.getElementById("erklaerfilm");
+const jumps = Array.from(document.querySelectorAll("[data-jump]"));
+
+function markChapter(time) {
+  let current = jumps[0];
+  jumps.forEach((btn) => {
+    if (time + 0.15 >= Number(btn.getAttribute("data-jump"))) current = btn;
+  });
+  jumps.forEach((btn) => {
+    if (btn === current) btn.setAttribute("aria-current", "true");
+    else btn.removeAttribute("aria-current");
+  });
+}
+
+function jumpTo(seconds) {
+  if (!film) return;
+  const go = () => {
+    const duration = Number.isFinite(film.duration) ? film.duration : seconds + 1;
+    film.currentTime = Math.max(0, Math.min(seconds, Math.max(duration - 0.05, 0)));
+    markChapter(seconds);
+    const play = film.play();
+    if (play && typeof play.catch === "function") play.catch(() => {});
+  };
+  if (film.readyState >= 1) go();
+  else {
+    film.addEventListener("loadedmetadata", go, { once: true });
+    film.load();
+  }
+}
+
+jumps.forEach((btn) => {
+  btn.addEventListener("click", () => jumpTo(Number(btn.getAttribute("data-jump"))));
+});
+
+if (film) {
+  film.addEventListener("timeupdate", () => markChapter(film.currentTime || 0));
+  film.addEventListener("seeked", () => markChapter(film.currentTime || 0));
 }
 
 const faqBtn = document.querySelector("[data-faq-toggle]");

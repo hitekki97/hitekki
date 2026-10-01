@@ -1,12 +1,80 @@
+const videoCache = new Map();
+const VIDEO_PATHS = new Set(["/erklaerfilm.mp4", "/erklaervideo.mp4"]);
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (request.method === "POST" && url.pathname === "/api/anfrage") {
       return handleContact(request);
     }
+    if (VIDEO_PATHS.has(url.pathname)) {
+      return serveVideo(request, env, url.pathname);
+    }
     return env.ASSETS.fetch(request);
   },
 };
+
+async function videoBytes(request, env, pathname) {
+  if (videoCache.has(pathname)) return videoCache.get(pathname);
+  const assetUrl = new URL(pathname, request.url);
+  const assetRes = await env.ASSETS.fetch(new Request(assetUrl, { method: "GET" }));
+  if (!assetRes.ok) return null;
+  const bytes = await assetRes.arrayBuffer();
+  videoCache.set(pathname, bytes);
+  return bytes;
+}
+
+async function serveVideo(request, env, pathname) {
+  if (request.method !== "GET" && request.method !== "HEAD") {
+    return new Response(null, { status: 405, headers: { Allow: "GET, HEAD" } });
+  }
+  const data = await videoBytes(request, env, pathname);
+  if (!data) return new Response("Video nicht gefunden", { status: 404 });
+  const size = data.byteLength;
+  const headers = {
+    "Content-Type": "video/mp4",
+    "Accept-Ranges": "bytes",
+    "Cache-Control": "public, max-age=86400",
+    "CDN-Cache-Control": "no-store",
+    "X-Content-Type-Options": "nosniff",
+  };
+  const range = request.headers.get("Range");
+  if (!range) {
+    headers["Content-Length"] = String(size);
+    return new Response(request.method === "HEAD" ? null : data, { status: 200, headers });
+  }
+  const match = /^bytes=(\d*)-(\d*)$/i.exec(range.trim());
+  if (!match || (match[1] === "" && match[2] === "")) {
+    return new Response(null, {
+      status: 416,
+      headers: { "Content-Range": `bytes */${size}`, "Accept-Ranges": "bytes" },
+    });
+  }
+  let start;
+  let end;
+  if (match[1] === "") {
+    const suffix = Number(match[2]);
+    if (!Number.isFinite(suffix) || suffix <= 0) {
+      return new Response(null, { status: 416, headers: { "Content-Range": `bytes */${size}` } });
+    }
+    start = Math.max(size - suffix, 0);
+    end = size - 1;
+  } else {
+    start = Number(match[1]);
+    end = match[2] === "" ? size - 1 : Number(match[2]);
+  }
+  if (!Number.isFinite(start) || !Number.isFinite(end) || start < 0 || start >= size || end < start) {
+    return new Response(null, {
+      status: 416,
+      headers: { "Content-Range": `bytes */${size}`, "Accept-Ranges": "bytes" },
+    });
+  }
+  end = Math.min(end, size - 1);
+  const slice = data.slice(start, end + 1);
+  headers["Content-Range"] = `bytes ${start}-${end}/${size}`;
+  headers["Content-Length"] = String(slice.byteLength);
+  return new Response(request.method === "HEAD" ? null : slice, { status: 206, headers });
+}
 
 async function handleContact(request) {
   let data;

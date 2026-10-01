@@ -147,6 +147,41 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.2; margin: 0.6rem 0 0
   aspect-ratio: 16 / 9;
   background: #141311;
 }
+.chapters-label {
+  margin: 0;
+  padding: 0.85rem 0.95rem 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c8c4ba;
+}
+.chapters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  padding: 0.7rem 0.9rem 0.95rem;
+}
+.chapters button {
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: #f4f2ec;
+  border-radius: 999px;
+  padding: 0.38rem 0.72rem;
+  font-size: 0.78rem;
+  line-height: 1.2;
+}
+.chapters button:hover { border-color: rgba(255, 255, 255, 0.45); }
+.chapters .ch-time {
+  color: #c8c4ba;
+  font-variant-numeric: tabular-nums;
+}
+.chapters button[aria-current="true"] {
+  background: var(--pine);
+  border-color: var(--pine);
+  color: #fff;
+}
+.chapters button[aria-current="true"] .ch-time { color: #d7ebe8; }
 
 section { padding: 4rem 0; border-bottom: 1px solid var(--line); }
 .card, .item, form, .note {
