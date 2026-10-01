@@ -2,16 +2,13 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (request.method === "POST" && url.pathname === "/api/anfrage") {
-      return handleContact(request, env);
+      return handleContact(request);
     }
     return env.ASSETS.fetch(request);
   },
 };
 
-async function handleContact(request, env) {
-  if (!env.WEB3FORMS_KEY) {
-    return json({ ok: false, error: "not-configured" }, 503);
-  }
+async function handleContact(request) {
   let data;
   try {
     data = await request.json();
@@ -29,24 +26,30 @@ async function handleContact(request, env) {
   if (name.length < 2 || company.length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || phone.length < 6 || message.length < 10) {
     return json({ ok: false, error: "invalid" }, 400);
   }
-  const text = [`Firma: ${company}`, `Telefon: ${phone}`, "", message].join("\n");
   try {
-    const response = await fetch("https://api.web3forms.com/submit", {
+    const response = await fetch("https://formsubmit.co/ajax/kontakt@hitekki.ch", {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Origin: "https://hitekki.ch",
+        Referer: "https://hitekki.ch/",
+      },
       body: JSON.stringify({
-        access_key: env.WEB3FORMS_KEY,
-        subject: `Anfrage von ${company}`,
         name,
+        company,
         email,
-        message: text,
-        from_name: "HiTekKi Website",
+        phone,
+        message,
+        _subject: `Anfrage von ${company}`,
+        _template: "table",
+        _captcha: "false",
+        _replyto: email,
       }),
     });
     const result = await response.json();
-    if (!response.ok || result.success === false || result.success === "false") {
-      return json({ ok: false, error: "send" }, 502);
-    }
+    const success = result.success === true || result.success === "true";
+    if (!success) return json({ ok: false, error: "send", message: result.message || "" }, 502);
   } catch {
     return json({ ok: false, error: "send" }, 502);
   }
