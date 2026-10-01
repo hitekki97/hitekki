@@ -131,6 +131,21 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.2; margin: 0.6rem 0 0
 .meta dt { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 .meta dd { margin: 0.3rem 0 0; }
 .actions { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-top: 1.6rem; }
+.film {
+  margin: 1.75rem auto 0;
+  max-width: 56rem;
+  background: #141311;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.film video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: #141311;
+}
 
 section { padding: 4rem 0; border-bottom: 1px solid var(--line); }
 .card, .item, form, .note {
