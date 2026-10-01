@@ -77,11 +77,12 @@ h2 { font-size: clamp(1.8rem, 3vw, 2.5rem); line-height: 1.2; margin: 0.6rem 0 0
 }
 .bolt svg { width: 1.1rem; height: auto; }
 .logo strong { display: block; font-family: var(--serif); font-size: 1.15rem; font-weight: 500; }
-.logo small { display: block; margin-top: 0.15rem; color: var(--muted); font-size: 0.68rem; letter-spacing: 0.02em; }
+.logo small { display: none; margin-top: 0.15rem; color: var(--muted); font-size: 0.68rem; letter-spacing: 0.02em; }
 .nav { display: none; gap: 1.6rem; }
 .nav a { text-decoration: none; color: var(--muted); font-size: 0.92rem; }
 .nav a:hover { color: var(--ink); }
 .header-actions { display: flex; align-items: center; gap: 0.5rem; }
+.header-actions .btn { display: none; }
 .lang { display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
 .lang button {
   border: 0;
@@ -224,6 +225,8 @@ form.hide { display: none; }
   .wrap { width: min(70rem, calc(100% - 4rem)); }
   .nav { display: flex; }
   .menu-btn { display: none; }
+  .header-actions .btn { display: inline-flex; }
+  .logo small { display: block; }
   .hero-grid { grid-template-columns: 1.6fr 0.8fr; align-items: end; }
   .meta { margin: 0; padding-left: 2rem; border-left: 1px solid var(--line); }
   .cards, .grid-3 { grid-template-columns: repeat(3, 1fr); }
