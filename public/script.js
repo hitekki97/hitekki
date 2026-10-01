@@ -311,16 +311,26 @@ if (form) {
       return;
     }
     const button = form.querySelector("button[type=submit]");
-    const errorEl = form.querySelector("[data-form-error]");
+    let errorEl = form.querySelector("[data-form-error]");
+    if (!errorEl) {
+      errorEl = document.createElement("p");
+      errorEl.className = "error";
+      errorEl.setAttribute("data-form-error", "");
+      button.insertAdjacentElement("afterend", errorEl);
+    }
+    const subject = (lang === "en" ? en["form.subject"] : "Anfrage von") + " " + values.company;
     const sendError = lang === "en"
       ? en["form.sendError"]
       : "Die Anfrage konnte nicht gesendet werden. Bitte noch einmal versuchen oder direkt an kontakt@hitekki.ch schreiben.";
-    if (errorEl) errorEl.textContent = "";
+    const activateError = lang === "en"
+      ? "One confirmation is waiting at kontakt@hitekki.ch. Open the FormSubmit mail, click Activate Form, then send the enquiry again. Check spam."
+      : "In kontakt@hitekki.ch liegt eine Mail von FormSubmit. Einmal auf «Activate Form» klicken, auch im Spam. Danach die Anfrage noch einmal senden.";
+    errorEl.textContent = "";
     if (button) {
       button.disabled = true;
       button.textContent = lang === "en" ? en["form.sending"] : "Wird gesendet…";
     }
-    fetch("/api/anfrage", {
+    fetch("https://formsubmit.co/ajax/kontakt@hitekki.ch", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
       body: JSON.stringify({
@@ -329,16 +339,28 @@ if (form) {
         email: values.email,
         phone: values.phone,
         message: values.message,
-        hp_email: honey
+        _subject: subject,
+        _template: "table",
+        _captcha: "false",
+        _replyto: values.email
       })
     }).then((response) => response.json().then((result) => ({ ok: response.ok, result })).catch(() => ({ ok: false, result: {} })))
       .then(({ ok, result }) => {
-        if (!ok || !result.ok) throw new Error("send");
+        const message = String(result.message || "");
+        if (message.toLowerCase().includes("activat")) {
+          errorEl.textContent = activateError;
+          if (button) {
+            button.disabled = false;
+            button.textContent = lang === "en" ? en["form.submit"] : "Anfrage senden";
+          }
+          return;
+        }
+        if (!ok || result.success === false || result.success === "false") throw new Error("send");
         form.classList.add("hide");
         if (thanks) thanks.classList.add("show");
       })
       .catch(() => {
-        if (errorEl) errorEl.textContent = sendError;
+        errorEl.textContent = sendError;
         if (button) {
           button.disabled = false;
           button.textContent = lang === "en" ? en["form.submit"] : "Anfrage senden";
