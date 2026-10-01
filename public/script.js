@@ -23,7 +23,7 @@ const en = {
   "ch.tom": "Tom",
   "ch.problem": "Customers",
   "ch.search": "Searching",
-  "ch.late": "Last minute",
+  "ch.late": "Five to twelve",
   "ch.hi": "HiTekKi",
   "ch.analyse": "Analysis",
   "ch.akquise": "Prospecting",
@@ -255,6 +255,7 @@ function apply(lang) {
     btn.setAttribute("aria-pressed", btn.getAttribute("data-lang") === lang ? "true" : "false");
   });
   localStorage.setItem("hitekki-lang", lang);
+  syncFilm(lang);
 }
 
 function setFaq(open) {
@@ -291,6 +292,54 @@ if (menuBtn && mobile) {
 
 const film = document.getElementById("erklaerfilm");
 const jumps = Array.from(document.querySelectorAll("[data-jump]"));
+const CHAPTERS = {
+  de: [0, 2, 10, 16, 27, 33, 41, 45, 53, 57],
+  en: [0, 2, 9, 17, 28, 32, 39, 43, 50, 54]
+};
+
+function clock(seconds) {
+  const whole = Math.max(0, Math.round(seconds));
+  return Math.floor(whole / 60) + ":" + String(whole % 60).padStart(2, "0");
+}
+
+function chapterIndex(time, times) {
+  let index = 0;
+  times.forEach((mark, i) => {
+    if (time + 0.15 >= mark) index = i;
+  });
+  return index;
+}
+
+function syncFilm(lang) {
+  if (!film || !jumps.length) return;
+  const nextTimes = CHAPTERS[lang] || CHAPTERS.de;
+  const prevTimes = jumps.map((btn) => Number(btn.getAttribute("data-jump")));
+  const index = chapterIndex(film.currentTime || 0, prevTimes);
+  const wasPlaying = !film.paused && !film.ended && film.currentTime > 0.2;
+  jumps.forEach((btn, i) => {
+    const mark = nextTimes[i];
+    if (mark == null) return;
+    btn.setAttribute("data-jump", String(mark));
+    const label = btn.querySelector(".ch-time");
+    if (label) label.textContent = clock(mark);
+  });
+  const file = (lang === "en" ? "erklaerfilm-en.mp4" : "erklaerfilm-de.mp4") + "?v=9";
+  const source = film.querySelector("source");
+  if (!source || source.getAttribute("src") === file) {
+    markChapter(film.currentTime || 0);
+    return;
+  }
+  source.setAttribute("src", file);
+  film.load();
+  if (!wasPlaying) return;
+  film.addEventListener("loadedmetadata", () => {
+    const mark = nextTimes[index] || 0;
+    const duration = Number.isFinite(film.duration) ? film.duration : mark + 1;
+    film.currentTime = Math.max(0, Math.min(mark, Math.max(duration - 0.05, 0)));
+    const play = film.play();
+    if (play && typeof play.catch === "function") play.catch(() => {});
+  }, { once: true });
+}
 
 function markChapter(time) {
   let current = jumps[0];

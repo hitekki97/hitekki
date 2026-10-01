@@ -1,5 +1,10 @@
 const videoCache = new Map();
-const VIDEO_PATHS = new Set(["/erklaerfilm.mp4", "/erklaervideo.mp4"]);
+const VIDEO_PATHS = new Set([
+  "/erklaerfilm.mp4",
+  "/erklaerfilm-de.mp4",
+  "/erklaerfilm-en.mp4",
+  "/erklaervideo.mp4",
+]);
 
 export default {
   async fetch(request, env) {
