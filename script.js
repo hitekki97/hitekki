@@ -343,11 +343,58 @@ if (form) {
         if (thanks) thanks.classList.add("show");
       })
       .catch(() => {
-        errorEl.textContent = sendError;
-        if (button) {
-          button.disabled = false;
-          button.textContent = lang === "en" ? en["form.submit"] : "Anfrage senden";
+        let frame = document.querySelector("iframe[name=hitekki-send]");
+        if (!frame) {
+          frame = document.createElement("iframe");
+          frame.name = "hitekki-send";
+          frame.hidden = true;
+          frame.setAttribute("aria-hidden", "true");
+          document.body.appendChild(frame);
         }
+        const outbound = document.createElement("form");
+        outbound.method = "POST";
+        outbound.action = "https://formsubmit.co/kontakt@hitekki.ch";
+        outbound.target = "hitekki-send";
+        outbound.acceptCharset = "UTF-8";
+        const fields = {
+          name: values.name,
+          company: values.company,
+          email: values.email,
+          phone: values.phone,
+          message: values.message,
+          _subject: (lang === "en" ? "Enquiry from" : "Anfrage von") + " " + values.company,
+          _captcha: "false",
+          _template: "table",
+          _replyto: values.email
+        };
+        Object.keys(fields).forEach((key) => {
+          const input = document.createElement("input");
+          input.type = "hidden";
+          input.name = key;
+          input.value = fields[key];
+          outbound.appendChild(input);
+        });
+        document.body.appendChild(outbound);
+        let settled = false;
+        const timer = window.setTimeout(() => {
+          if (settled) return;
+          settled = true;
+          outbound.remove();
+          errorEl.textContent = sendError;
+          if (button) {
+            button.disabled = false;
+            button.textContent = lang === "en" ? en["form.submit"] : "Anfrage senden";
+          }
+        }, 12000);
+        frame.onload = () => {
+          if (settled) return;
+          settled = true;
+          window.clearTimeout(timer);
+          outbound.remove();
+          form.classList.add("hide");
+          if (thanks) thanks.classList.add("show");
+        };
+        outbound.submit();
       });
   });
 }
