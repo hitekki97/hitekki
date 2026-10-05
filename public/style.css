@@ -10,7 +10,7 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; overflow-x: clip; }
 body {
   margin: 0;
   background: var(--paper);
@@ -18,10 +18,11 @@ body {
   font-family: var(--sans);
   font-size: 16px;
   line-height: 1.47;
+  overflow-x: clip;
   -webkit-font-smoothing: antialiased;
 }
-h1, h2, h3 { text-wrap: balance; letter-spacing: -0.022em; margin: 0; }
-p { text-wrap: pretty; margin: 0; }
+h1, h2, h3 { text-wrap: wrap; overflow-wrap: anywhere; letter-spacing: -0.022em; margin: 0; max-width: 100%; }
+p { text-wrap: wrap; overflow-wrap: anywhere; margin: 0; max-width: 100%; }
 a { color: inherit; }
 button, [role="button"] { cursor: pointer; font-family: inherit; }
 img, svg { display: block; }
@@ -145,10 +146,14 @@ img, svg { display: block; }
 
 .store {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.75rem;
+  width: min(74rem, calc(100% - 1.5rem));
+  max-width: 100%;
+  margin-inline: auto;
   padding: 0.75rem 0 2rem;
 }
+.store > * { min-width: 0; max-width: 100%; }
 .span-2 { grid-column: 1 / -1; }
 .tile, .poster, .hero, .card {
   background: var(--cream);
@@ -347,7 +352,7 @@ input:focus, textarea:focus { outline: 2px solid rgba(0, 102, 204, 0.25); border
   .bar-inner, .store, .foot-inner, .legal, .legal-line .foot-inner {
     width: min(74rem, calc(100% - 2.5rem));
   }
-  .store { grid-template-columns: 1fr 1fr; }
+  .store { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
   .hero { padding: 6rem 4rem; }
   h1 { font-size: 3.75rem; }
   .accent { font-size: 1.5rem; }
