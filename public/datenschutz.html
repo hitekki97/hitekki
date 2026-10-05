@@ -1,54 +1,75 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Datenschutz · HiTekKi</title>
-  <meta name="theme-color" content="#F4F2EC">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Datenschutzhinweise von HiTekKi, Tim Fischer, Zürich." />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css?v=10" />
 </head>
 <body>
-  <header class="header">
-    <div class="wrap header-bar">
-      <a class="logo" href="index.html">
-        <span class="bolt" aria-hidden="true"><svg viewBox="0 0 76 136" fill="currentColor"><path d="M64.5 3 42.5 58.5H73L11.5 133 33.5 77.5H3Z"/></svg></span>
-        <span><strong>HiTekKi</strong><small>Vertrieb · Technik · Sichtbarkeit</small></span>
+  <a class="skip" href="#inhalt" data-i18n="skip">Zum Inhalt</a>
+  <header class="bar">
+    <div class="bar-inner">
+      <a class="logo" href="/" aria-label="HiTekKi, Startseite">
+        <span class="mark" aria-hidden="true"><svg viewBox="0 0 76 136"><path d="M64.5 3 42.5 58.5H73L11.5 133 33.5 77.5H3Z"/></svg></span>
+        HiTekKi
       </a>
-      <div class="header-actions">
-        <div class="lang" role="group" aria-label="Sprache">
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="/#leistungen" data-i18n="nav.services">Leistungen</a>
+        <a href="/#film" data-i18n="film.kicker">Film</a>
+        <a href="/#ablauf" data-i18n="nav.process">Ablauf</a>
+        <a href="/#fragen" data-i18n="nav.questions">Fragen</a>
+      </nav>
+      <div class="tools">
+        <div class="langs" role="group" aria-label="Sprache">
           <button type="button" data-lang="de" aria-pressed="true">DE</button>
+          <span aria-hidden="true">/</span>
           <button type="button" data-lang="en" aria-pressed="false">EN</button>
         </div>
-        <a class="btn" href="index.html#kontakt" data-i18n="nav.cta">Gespräch vereinbaren</a>
+        <a class="cta" href="/#kontakt" data-i18n="nav.cta">Gespräch vereinbaren</a>
+        <button class="menu" type="button" data-menu aria-expanded="false" aria-controls="mobile-nav">Menü</button>
       </div>
     </div>
   </header>
-  <main class="wrap legal">
-    <p><a class="back" href="index.html" data-i18n="foot.back">Zurück zur Startseite</a></p>
-    <h1>Datenschutz</h1>
-    <p>Diese Hinweise beschreiben den Umgang mit Personendaten auf dieser Website. Grundlage ist das Schweizer Datenschutzgesetz (DSG).</p>
-    <h2>Verantwortliche Person</h2>
-    <p>Tim Fischer, handelnd unter HiTekKi, Bahnhofstrasse 65, 8001 Zürich. Kontakt: kontakt@hitekki.ch.</p>
-    <h2>Welche Daten anfallen</h2>
-    <p>Beim Aufruf der Seite fallen übliche technische Protokolldaten beim Hosting-Anbieter an (IP-Adresse, Zeitpunkt, aufgerufene Seite). Es werden keine Analyse-Cookies und kein Tracking eingesetzt.</p>
-    <p>Über das Kontaktformular werden Name, Firma, E-Mail, Telefonnummer der anfragenden Person und die Nachricht übermittelt – ausschliesslich zur Prüfung der Anfrage und für einen allfälligen Rückruf. Der Versand läuft über FormSubmit an kontakt@hitekki.ch. Das Passwort der Mailbox wird dafür nicht verwendet und steht nicht im Seiten-Code. Eine eigene Telefonnummer wird auf dieser Website nicht veröffentlicht.</p>
-    <h2>Zweck und Rechtsgrundlage</h2>
-    <p>Die Daten dienen der Kontaktaufnahme und der Prüfung eines möglichen Mandats. Eine Weitergabe an Dritte erfolgt nicht, ausser sie ist gesetzlich vorgeschrieben oder für die Erfüllung der Anfrage nötig (z. B. Hosting).</p>
-    <h2>Aufbewahrung</h2>
-    <p>Anfragen werden so lange aufbewahrt, wie es für die Bearbeitung und allfällige gesetzliche Pflichten nötig ist, danach gelöscht.</p>
-    <h2>Rechte</h2>
-    <p>Sie können Auskunft, Berichtigung, Löschung, Einschränkung der Bearbeitung und Datenherausgabe verlangen. Anfragen an kontakt@hitekki.ch. Sie können sich beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) beschweren.</p>
-  </main>
-  <footer class="footer">
-    <div class="wrap foot-bottom">
-      <p>© 2026 HiTekKi</p>
-      <p><a href="impressum.html">Impressum</a></p>
+  <div id="mobile-nav" class="mobile" data-mobile>
+    <div class="bar-inner" style="display:block">
+      <a href="/#leistungen" data-i18n="nav.services">Leistungen</a>
+      <a href="/#film" data-i18n="film.kicker">Film</a>
+      <a href="/#ablauf" data-i18n="nav.process">Ablauf</a>
+      <a href="/#fragen" data-i18n="nav.questions">Fragen</a>
+      <a class="cta" href="/#kontakt" data-i18n="nav.cta">Gespräch vereinbaren</a>
     </div>
+  </div>
+  <main id="inhalt" class="legal">
+    <article class="sheet">
+      <a class="back" href="/" data-i18n="foot.back">Zurück zur Startseite</a>
+      <h1>Datenschutz</h1>
+      <p class="small" data-i18n="foot.legal"></p>
+      <div class="copy">
+        <p>Diese Hinweise gelten für die Website von HiTekKi. Grundlage ist das Schweizer Datenschutzgesetz (DSG). Es gibt kein Cookie-Banner, weil keine Analyse- oder Marketing-Cookies gesetzt werden.</p>
+        <h2>Verantwortliche Person</h2>
+        <p>Tim Fischer, handelnd unter HiTekKi<br />Bahnhofstrasse 65, 8001 Zürich, Schweiz<br />E-Mail: <a href="mailto:kontakt@hitekki.ch">kontakt@hitekki.ch</a></p>
+        <h2>Beim Aufruf der Seite</h2>
+        <p>Der Hosting-Anbieter speichert übliche technische Protokolle: IP-Adresse, Zeitpunkt, aufgerufene Adresse und Browsertyp. Das dient dem Betrieb und der Sicherheit der Seite. Es wird kein Analysewerkzeug und kein Werbenetzwerk eingebunden.</p>
+        <h2>Kontaktformular</h2>
+        <p>Wenn Sie eine Anfrage senden, werden Name, Firma, E-Mail, Telefonnummer und Nachricht an kontakt@hitekki.ch übermittelt. Zweck ist die Prüfung, ob ein Mandat passt, und ein allfälliger Rückruf. Die Angaben werden nicht für Werbung oder einen Newsletter verwendet. Eine Telefonnummer von HiTekKi steht auf dieser Website nicht.</p>
+        <h2>Zweck und Weitergabe</h2>
+        <p>Die Daten werden für die Kontaktaufnahme und die Prüfung eines möglichen Mandats bearbeitet. Eine Weitergabe an Dritte erfolgt nicht, ausser sie ist gesetzlich vorgeschrieben oder technisch nötig, damit die Anfrage ankommt (Hosting, E-Mail-Zustellung).</p>
+        <h2>Aufbewahrung</h2>
+        <p>Anfragen bleiben so lange gespeichert, wie die Bearbeitung und allfällige gesetzliche Pflichten es verlangen. Danach werden sie gelöscht.</p>
+        <h2>Ihre Rechte</h2>
+        <p>Sie können Auskunft, Berichtigung, Löschung, Einschränkung der Bearbeitung und Herausgabe Ihrer Daten verlangen. Schreiben Sie an <a href="mailto:kontakt@hitekki.ch">kontakt@hitekki.ch</a>. Sie können sich beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) beschweren.</p>
+      </div>
+    </article>
+  </main>
+  <footer class="foot">
+    <div class="legal-line"><div class="foot-inner"><p>© 2026 HiTekKi. Tim Fischer.</p><p><a href="/impressum">Impressum</a></p></div></div>
   </footer>
-  <script src="script.js"></script>
+  <script src="/script.js?v=10"></script>
 </body>
 </html>

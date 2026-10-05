@@ -1,335 +1,345 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>HiTekKi · Vertrieb · Technik · Sichtbarkeit</title>
-  <meta name="description" content="HiTekKi – Tim Fischer in Zürich. Smart und seriös Kunden gewinnen, in der Schweiz und in Deutschland.">
-  <link rel="canonical" href="https://hitekki.ch/">
-  <meta name="robots" content="index,follow">
-  <meta property="og:title" content="HiTekKi · Vertrieb · Technik · Sichtbarkeit">
-  <meta property="og:description" content="HiTekKi – Tim Fischer in Zürich. Smart und seriös Kunden gewinnen, in der Schweiz und in Deutschland.">
-  <meta property="og:url" content="https://hitekki.ch/">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="de_CH">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"ProfessionalService","name":"HiTekKi","url":"https://hitekki.ch/","email":"kontakt@hitekki.ch","founder":{"@type":"Person","name":"Tim Fischer"},"areaServed":["CH","DE"],"address":{"@type":"PostalAddress","addressLocality":"Zürich","addressCountry":"CH"},"description":"Smart und seriös Kunden gewinnen, in der Schweiz und in Deutschland."}
-  </script>
-  <meta name="theme-color" content="#F4F2EC">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=7">
+  <meta name="description" content="HiTekKi – Tim Fischer in Zürich. Smart und seriös Kunden gewinnen, in der Schweiz und in Deutschland." />
+  <meta name="author" content="Tim Fischer" />
+  <meta name="theme-color" content="#F5F5F7" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css?v=10" />
 </head>
 <body>
-  <header class="header">
-    <div class="wrap header-bar">
-      <a class="logo" href="index.html" aria-label="HiTekKi, Startseite">
-        <span class="bolt" aria-hidden="true"><svg viewBox="0 0 76 136" fill="currentColor"><path d="M64.5 3 42.5 58.5H73L11.5 133 33.5 77.5H3Z"/></svg></span>
-        <span><strong>HiTekKi</strong><small>Vertrieb · Technik · Sichtbarkeit</small></span>
+  <a class="skip" href="#inhalt" data-i18n="skip">Zum Inhalt</a>
+  <header class="bar">
+    <div class="bar-inner">
+      <a class="logo" href="/" aria-label="HiTekKi, Startseite">
+        <span class="mark" aria-hidden="true"><svg viewBox="0 0 76 136"><path d="M64.5 3 42.5 58.5H73L11.5 133 33.5 77.5H3Z"/></svg></span>
+        HiTekKi
       </a>
       <nav class="nav" aria-label="Hauptnavigation">
         <a href="#leistungen" data-i18n="nav.services">Leistungen</a>
-        <a href="#ansatz" data-i18n="nav.approach">Ansatz</a>
+        <a href="#film" data-i18n="film.kicker">Film</a>
         <a href="#ablauf" data-i18n="nav.process">Ablauf</a>
         <a href="#fragen" data-i18n="nav.questions">Fragen</a>
       </nav>
-      <div class="header-actions">
-        <div class="lang" role="group" aria-label="Sprache">
+      <div class="tools">
+        <div class="langs" role="group" aria-label="Sprache">
           <button type="button" data-lang="de" aria-pressed="true">DE</button>
+          <span aria-hidden="true">/</span>
           <button type="button" data-lang="en" aria-pressed="false">EN</button>
         </div>
-        <a class="btn" href="#kontakt" data-i18n="nav.cta">Gespräch vereinbaren</a>
-        <button class="menu-btn" type="button" data-menu aria-expanded="false" aria-label="Menü öffnen">Menü</button>
+        <a class="cta" href="#kontakt" data-i18n="nav.cta">Gespräch vereinbaren</a>
+        <button class="menu" type="button" data-menu aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü öffnen">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
       </div>
-    </div>
-    <div class="wrap mobile-nav" data-mobile>
-      <a href="#leistungen" data-i18n="nav.services">Leistungen</a>
-      <a href="#ansatz" data-i18n="nav.approach">Ansatz</a>
-      <a href="#ablauf" data-i18n="nav.process">Ablauf</a>
-      <a href="#fragen" data-i18n="nav.questions">Fragen</a>
-      <a href="#kontakt" data-i18n="nav.cta">Gespräch vereinbaren</a>
     </div>
   </header>
+  <div id="mobile-nav" class="mobile" data-mobile>
+    <div class="bar-inner" style="display:block">
+      <a href="#leistungen" data-i18n="nav.services">Leistungen</a>
+      <a href="#film" data-i18n="film.kicker">Film</a>
+      <a href="#ablauf" data-i18n="nav.process">Ablauf</a>
+      <a href="#fragen" data-i18n="nav.questions">Fragen</a>
+      <a class="cta" href="#kontakt" data-i18n="nav.cta">Gespräch vereinbaren</a>
+    </div>
+  </div>
 
-  <main>
-    <section class="hero">
-      <div class="wrap hero-grid">
-        <div>
-          <p class="muted">HiTekKi · Zürich · <span data-i18n="hero.place">Schweiz und Deutschland</span></p>
-          <h1><span data-i18n="hero.line">Smart und seriös Kunden gewinnen.</span><span class="pine" style="display:block" data-i18n="hero.accent">In der Schweiz und Deutschland.</span></h1>
-          <p class="lede" data-i18n="hero.body">HiTekKi wird von Tim Fischer betrieben. Ich gewinne Kunden für Firmen, die in der Schweiz und in Deutschland verkaufen wollen. Auftraggeber aus dem Ausland sind willkommen. Wir sprechen Deutsch oder Englisch.</p>
-          <div class="actions">
-            <a class="btn" href="#kontakt" data-i18n="nav.cta">Gespräch vereinbaren</a>
-            <a class="btn ghost" href="#leistungen" data-i18n="hero.services">Leistungen</a>
-          </div>
+  <main id="inhalt">
+    <div class="store">
+      <section class="hero span-2">
+        <p class="kicker">HiTekKi · Zürich</p>
+        <h1 data-i18n="hero.line">Smart und seriös Kunden gewinnen.</h1>
+        <p class="accent" data-i18n="hero.accent">In der Schweiz und Deutschland.</p>
+        <p class="lede" data-i18n="hero.body">HiTekKi wird von Tim Fischer betrieben. Ich gewinne Kunden für Firmen, die in der Schweiz und in Deutschland verkaufen wollen. Auftraggeber aus dem Ausland sind willkommen. Wir sprechen Deutsch oder Englisch.</p>
+        <div class="links">
+          <a class="more" href="#kontakt"><span data-i18n="nav.cta">Gespräch vereinbaren</span><svg viewBox="0 0 20 20"><path d="M7 4l6 6-6 6"/></svg></a>
+          <a class="more" href="#film"><span data-i18n="shop.watch">Film ansehen</span><svg viewBox="0 0 20 20"><path d="M7 4l6 6-6 6"/></svg></a>
         </div>
-        <dl class="meta">
-          <div><dt data-i18n="hero.brand">Marke</dt><dd>HiTekKi</dd></div>
-          <div><dt data-i18n="hero.operator">Betreiber</dt><dd>Tim Fischer</dd></div>
-          <div><dt data-i18n="hero.seat">Sitz</dt><dd>Zürich, Schweiz</dd></div>
-          <div><dt data-i18n="hero.talk">Gespräch</dt><dd data-i18n="hero.talkValue">Deutsch, Englisch</dd></div>
-        </dl>
-      </div>
-    </section>
+      </section>
 
-    <section id="film">
-      <div class="wrap">
+      <div id="leistungen" class="span-2">
+        <div class="filters" role="group" aria-label="Sortiment">
+          <button type="button" data-filter="all" aria-pressed="true" data-i18n="shop.all">Alle</button>
+          <button type="button" data-filter="sales" aria-pressed="false" data-i18n="shop.sales">Vertrieb</button>
+          <button type="button" data-filter="build" aria-pressed="false" data-i18n="shop.build">Technik</button>
+          <button type="button" data-filter="visibility" aria-pressed="false" data-i18n="shop.visibility">Sichtbarkeit</button>
+        </div>
+        <p class="note" data-i18n="shop.note">Keine Preise auf der Seite. Einsatz und Erfolg im Gespräch.</p>
+      </div>
+
+      <a class="poster dark span-2" data-family="sales" href="#mandat">
+        <p class="kicker" data-i18n="a.k">Mandat A</p>
+        <h2 data-i18n="a.t">Bis zum Abschluss</h2>
+        <p class="sub" data-i18n="a.x">Akquise, Qualifizierung, Verhandlung, Vertrag. Für Firmen ohne eigene Abschlusskapazität.</p>
+        <span class="more"><span data-i18n="shop.see">Ansehen</span><svg viewBox="0 0 20 20"><path d="M7 4l6 6-6 6"/></svg></span>
+      </a>
+      <a class="poster" data-family="sales" href="#mandat">
+        <p class="kicker" data-i18n="b.k">Mandat B</p>
+        <h2 data-i18n="b.t">Leadgenerierung</h2>
+        <p class="sub" data-i18n="b.x">Keine Namensliste. Ein Lead ist ein terminierter Entscheider mit genanntem Bedarf. Übergabe an Ihr Team, das den Abschluss macht.</p>
+        <span class="more"><span data-i18n="shop.see">Ansehen</span><svg viewBox="0 0 20 20"><path d="M7 4l6 6-6 6"/></svg></span>
+      </a>
+      <a class="poster" data-family="sales" href="#mandat">
+        <p class="kicker" data-i18n="c.k">Mandat C</p>
+        <h2 data-i18n="c.t">Bestehende Leads</h2>
+        <p class="sub" data-i18n="c.x">CRM-Bestand, Messekontakte, offene Offerten. Nachfassen statt liegen lassen.</p>
+        <span class="more"><span data-i18n="shop.see">Ansehen</span><svg viewBox="0 0 20 20"><path d="M7 4l6 6-6 6"/></svg></span>
+      </a>
+      <a class="poster" data-family="build" href="#technik">
+        <p class="kicker" data-i18n="p2.t">Technik</p>
+        <h2 data-i18n="shop.webTitle">Seiten und Landing Pages</h2>
+        <p class="sub" data-i18n="shop.webText">Websites und Landing Pages, die Anfragen oder Abschlüsse tragen. Kein Design um des Designs willen.</p>
+        <span class="more"><span data-i18n="shop.see">Ansehen</span><svg viewBox="0 0 20 20"><path d="M7 4l6 6-6 6"/></svg></span>
+      </a>
+      <a class="poster" data-family="build" href="#film">
+        <p class="kicker" data-i18n="p2.t">Technik</p>
+        <h2 data-i18n="shop.filmTitle">Erklärfilme</h2>
+        <p class="sub" data-i18n="shop.filmText">Kurz animiert, damit ein Angebot in Minuten klar wird. Kein Drehteam, kein Imagefilm.</p>
+        <span class="more"><span data-i18n="shop.see">Ansehen</span><svg viewBox="0 0 20 20"><path d="M7 4l6 6-6 6"/></svg></span>
+      </a>
+      <a class="poster dark span-2" data-family="visibility" href="#sichtbarkeit">
+        <p class="kicker" data-i18n="p3.t">Sichtbarkeit</p>
+        <h2 data-i18n="shop.adsTitle">Sichtbarkeit mit Zielgruppe</h2>
+        <p class="sub" data-i18n="p3.x">Zielgerichtete Werbung und Social-Präsenz für definierte Zielgruppen. Kein Reichweiten-Theater, keine Kampagne ohne klares Gegenüber.</p>
+        <span class="more"><span data-i18n="shop.see">Ansehen</span><svg viewBox="0 0 20 20"><path d="M7 4l6 6-6 6"/></svg></span>
+      </a>
+
+      <section id="technik" class="film span-2">
         <p class="kicker" data-i18n="film.kicker">Film</p>
-        <h2 data-i18n="film.title">Das Produkt ist nicht das Problem.</h2>
-        <p class="lede" data-i18n="film.body">Tom hat das Angebot. Die Kunden fehlen. In gut einer Minute, wie HiTekKi dazwischen geht.</p>
-        <figure class="film">
+        <h2 id="film" data-i18n="film.title">Das Produkt ist nicht das Problem.</h2>
+        <p class="sub" data-i18n="film.body">Tom hat das Angebot. Die Kunden fehlen. In gut einer Minute, wie HiTekKi dazwischen geht.</p>
+        <p class="tech" data-i18n="p2.x">Websites, Landing Pages und kurze Erklärfilme. Einfach animiert, damit ein Angebot in Minuten klar wird. Kein Drehteam, kein Imagefilm.</p>
+        <figure class="player">
           <video id="erklaerfilm" controls playsinline preload="metadata" width="1920" height="1080">
-            <source src="erklaerfilm-de.mp4?v=9" type="video/mp4">
+            <source src="/erklaerfilm-de.mp4?v=9" type="video/mp4" />
           </video>
-          <p id="film-jump" class="chapters-label" data-i18n="film.jump">Im Film springen</p>
-          <div class="chapters" role="group" aria-labelledby="film-jump">
-            <button type="button" data-jump="0"><span class="ch-time">0:00</span> <span data-i18n="ch.tom">Tom</span></button>
-            <button type="button" data-jump="2"><span class="ch-time">0:02</span> <span data-i18n="ch.problem">Kunden</span></button>
-            <button type="button" data-jump="10"><span class="ch-time">0:10</span> <span data-i18n="ch.search">Suche</span></button>
-            <button type="button" data-jump="16"><span class="ch-time">0:16</span> <span data-i18n="ch.late">Fünf vor zwölf</span></button>
-            <button type="button" data-jump="27"><span class="ch-time">0:27</span> <span data-i18n="ch.hi">HiTekKi</span></button>
-            <button type="button" data-jump="33"><span class="ch-time">0:33</span> <span data-i18n="ch.analyse">Analyse</span></button>
-            <button type="button" data-jump="41"><span class="ch-time">0:41</span> <span data-i18n="ch.akquise">Akquise</span></button>
-            <button type="button" data-jump="45"><span class="ch-time">0:45</span> <span data-i18n="ch.timo">Timo</span></button>
-            <button type="button" data-jump="53"><span class="ch-time">0:53</span> <span data-i18n="ch.link">Vermittlung</span></button>
-            <button type="button" data-jump="57"><span class="ch-time">0:57</span> <span data-i18n="ch.close">Sei wie Tom</span></button>
+          <p class="jump-label" data-i18n="film.jump">Im Film springen</p>
+          <div class="chapters" role="group" aria-label="Im Film springen">
+            <button type="button" data-jump="0"><span class="ch-time">0:00</span><span data-i18n="ch.tom">Tom</span></button>
+            <button type="button" data-jump="2"><span class="ch-time">0:02</span><span data-i18n="ch.problem">Kunden</span></button>
+            <button type="button" data-jump="10"><span class="ch-time">0:10</span><span data-i18n="ch.search">Suche</span></button>
+            <button type="button" data-jump="16"><span class="ch-time">0:16</span><span data-i18n="ch.late">Fünf vor zwölf</span></button>
+            <button type="button" data-jump="27"><span class="ch-time">0:27</span><span data-i18n="ch.hi">HiTekKi</span></button>
+            <button type="button" data-jump="33"><span class="ch-time">0:33</span><span data-i18n="ch.analyse">Analyse</span></button>
+            <button type="button" data-jump="41"><span class="ch-time">0:41</span><span data-i18n="ch.akquise">Akquise</span></button>
+            <button type="button" data-jump="45"><span class="ch-time">0:45</span><span data-i18n="ch.timo">Timo</span></button>
+            <button type="button" data-jump="53"><span class="ch-time">0:53</span><span data-i18n="ch.link">Vermittlung</span></button>
+            <button type="button" data-jump="57"><span class="ch-time">0:57</span><span data-i18n="ch.close">Sei wie Tom</span></button>
           </div>
         </figure>
-      </div>
-    </section>
+      </section>
 
-    <section id="leistungen">
-      <div class="wrap">
-        <p class="kicker" data-i18n="pillars.kicker">Leistungen</p>
-        <h2 data-i18n="pillars.title">Was HiTekKi übernimmt</h2>
-        <p class="lede" data-i18n="pillars.body">Drei Felder, ein Betreiber. Technik und Sichtbarkeit dienen dem Vertrieb – nicht umgekehrt.</p>
-        <div class="cards" style="margin-top:1.5rem">
-          <article class="card"><p class="num">01</p><h3 data-i18n="p1.t">Vertrieb</h3><p data-i18n="p1.x">Akquise, Qualifizierung, Abschluss. Neue Kunden, Leadgenerierung oder Nachfassen im Bestand – an Entscheider in der Schweiz und in Deutschland.</p></article>
-          <article class="card"><p class="num">02</p><h3 data-i18n="p2.t">Technik</h3><p data-i18n="p2.x">Websites, Landing Pages und kurze Erklärfilme. Einfach animiert, damit ein Angebot in Minuten klar wird. Kein Drehteam, kein Imagefilm.</p></article>
-          <article class="card"><p class="num">03</p><h3 data-i18n="p3.t">Sichtbarkeit</h3><p data-i18n="p3.x">Zielgerichtete Werbung und Social-Präsenz für definierte Zielgruppen. Kein Reichweiten-Theater, keine Kampagne ohne klares Gegenüber.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="vertrieb">
-      <div class="wrap">
+      <section id="mandat" class="tile span-2">
         <p class="kicker" data-i18n="man.kicker">Vertrieb</p>
         <h2 data-i18n="man.title">Vom Erstkontakt bis zum Vertrag</h2>
-        <p class="lede" data-i18n="man.body">Je nach Mandat den ganzen Zyklus, nur qualifizierte Leads, oder Nachfassen im Bestand.</p>
-        <div class="grid-2" style="margin-top:1.5rem">
-          <article class="item"><p class="num">01</p><h3 data-i18n="m1.t">Akquise</h3><p data-i18n="m1.x">Gezielte Ansprache von Entscheidern in der Schweiz und in Deutschland. Telefon und Video-Call. Kein Callcenter, kein Massenversand.</p></article>
-          <article class="item"><p class="num">02</p><h3 data-i18n="m2.t">Terminsetzung</h3><p data-i18n="m2.x">Gespräche mit den richtigen Personen. Vorbereitung, die Zeit auf beiden Seiten schont.</p></article>
-          <article class="item"><p class="num">03</p><h3 data-i18n="m3.t">Qualifizierung</h3><p data-i18n="m3.x">Bedarf, Budget, Zeitrahmen – bevor Aufwand im Abschluss verloren geht.</p></article>
-          <article class="item"><p class="num">04</p><h3 data-i18n="m4.t">Abschluss</h3><p data-i18n="m4.x">Verhandeln und zum Vertrag führen. Abrechnung über die eigene Rechnung.</p></article>
+        <p class="intro" data-i18n="man.body">Je nach Mandat den ganzen Zyklus, nur qualifizierte Leads, oder Nachfassen im Bestand.</p>
+        <ol class="grid4">
+          <li><p class="num">01</p><h3 data-i18n="m1.t">Akquise</h3><p class="small" data-i18n="m1.x">Gezielte Ansprache von Entscheidern in der Schweiz und in Deutschland. Telefon und Video-Call. Kein Callcenter, kein Massenversand.</p></li>
+          <li><p class="num">02</p><h3 data-i18n="m2.t">Terminsetzung</h3><p class="small" data-i18n="m2.x">Gespräche mit den richtigen Personen. Vorbereitung, die Zeit auf beiden Seiten schont.</p></li>
+          <li><p class="num">03</p><h3 data-i18n="m3.t">Qualifizierung</h3><p class="small" data-i18n="m3.x">Bedarf, Budget, Zeitrahmen – bevor Aufwand im Abschluss verloren geht.</p></li>
+          <li><p class="num">04</p><h3 data-i18n="m4.t">Abschluss</h3><p class="small" data-i18n="m4.x">Verhandeln und zum Vertrag führen. Abrechnung über die eigene Rechnung.</p></li>
+        </ol>
+        <div class="rule">
+          <h3 data-i18n="lead.title">Was als Lead zählt</h3>
+          <ul class="plain grid2">
+            <li data-i18n="lead.1">Firma in der Zielgruppe, Schweiz oder Deutschland</li>
+            <li data-i18n="lead.2">Ansprechperson mit Entscheidungsrolle</li>
+            <li data-i18n="lead.3">Bedarf in eigenen Worten, nicht nur Interesse</li>
+            <li data-i18n="lead.4">Termin steht – oder ist schriftlich zugesagt</li>
+          </ul>
+          <p class="small" data-i18n="lead.note">Dazu eine kurze Notiz: Firma, Person, Bedarf, nächster Schritt. Was davon fehlt, ist kein Lead und wird nicht berechnet.</p>
         </div>
-        <div class="cards" style="margin-top:1.5rem">
-          <article class="card"><p class="num" data-i18n="a.k">Mandat A</p><h3 data-i18n="a.t">Bis zum Abschluss</h3><p data-i18n="a.x">Akquise, Qualifizierung, Verhandlung, Vertrag. Für Firmen ohne eigene Abschlusskapazität.</p></article>
-          <article class="card"><p class="num" data-i18n="b.k">Mandat B</p><h3 data-i18n="b.t">Leadgenerierung</h3><p data-i18n="b.x">Keine Namensliste. Ein Lead ist ein terminierter Entscheider mit genanntem Bedarf. Übergabe an Ihr Team, das den Abschluss macht.</p></article>
-          <article class="card"><p class="num" data-i18n="c.k">Mandat C</p><h3 data-i18n="c.t">Bestehende Leads</h3><p data-i18n="c.x">CRM-Bestand, Messekontakte, offene Offerten. Nachfassen statt liegen lassen.</p></article>
-        </div>
-        <div class="two" style="margin-top:1.5rem">
-          <div>
-            <h3 data-i18n="lead.title">Was als Lead zählt</h3>
-            <ul class="clean">
-              <li data-i18n="lead.1">Firma in der Zielgruppe, Schweiz oder Deutschland</li>
-              <li data-i18n="lead.2">Ansprechperson mit Entscheidungsrolle</li>
-              <li data-i18n="lead.3">Bedarf in eigenen Worten, nicht nur Interesse</li>
-              <li data-i18n="lead.4">Termin steht – oder ist schriftlich zugesagt</li>
-            </ul>
-          </div>
-          <p class="note" data-i18n="lead.note">Dazu eine kurze Notiz: Firma, Person, Bedarf, nächster Schritt. Was davon fehlt, ist kein Lead und wird nicht berechnet.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="einsatz">
-      <div class="wrap">
+      <section id="sichtbarkeit" class="tile span-2">
+        <p class="kicker" data-i18n="p3.t">Sichtbarkeit</p>
+        <h2 data-i18n="shop.adsTitle">Sichtbarkeit mit Zielgruppe</h2>
+        <p class="intro" data-i18n="p3.x">Zielgerichtete Werbung und Social-Präsenz für definierte Zielgruppen. Kein Reichweiten-Theater, keine Kampagne ohne klares Gegenüber.</p>
+      </section>
+
+      <section id="einsatz" class="tile span-2">
         <p class="kicker" data-i18n="fields.kicker">Einsatzfelder</p>
         <h2 data-i18n="fields.title">Wo ein Mandat greift</h2>
-        <p class="lede" data-i18n="fields.body">B2B in der Schweiz und in Deutschland. Entscheidend sind Angebot, Zielkunde und die Chance auf einen Abschluss.</p>
-        <div class="grid-3" style="margin-top:1.5rem">
-          <article class="card"><h3 data-i18n="f1.t">Software und SaaS</h3><p data-i18n="f1.x">Werkzeuge für KMU: von Branchensoftware bis Abo-Modell. Verkauf an Entscheider, nicht an die IT-Abteilung allein.</p></article>
-          <article class="card"><h3 data-i18n="f2.t">KI und Automatisierung</h3><p data-i18n="f2.x">Lösungen, die Zeit oder Kosten im Betrieb sparen. Nur wo der Nutzen im Gespräch greifbar wird – kein Techniktheater.</p></article>
-          <article class="card"><h3 data-i18n="f3.t">B2B-Dienstleistungen</h3><p data-i18n="f3.x">Beratung, Outsourcing, Facility, Schulung. Wer ein klares Angebot hat und in der Schweiz oder in Deutschland Kunden sucht.</p></article>
-          <article class="card"><h3 data-i18n="f4.t">Versicherungen im Firmenkundengeschäft</h3><p data-i18n="f4.x">B2B: Betriebe, nicht Haushalte. Kein Türgeschäft, keine Strukturvertriebs-Logik.</p></article>
-          <article class="card"><h3 data-i18n="f5.t">Handwerk und technische Lösungen</h3><p data-i18n="f5.x">Angebote für KMU – Maschinen, Unterhalt, Energie, Betriebstechnik. Abschluss, wo Bedarf und Budget zusammenpassen.</p></article>
-          <article class="card"><h3 data-i18n="f6.t">Industrie und Zulieferer</h3><p data-i18n="f6.x">Wenn das Produkt an Firmen geht und der Markt in der Schweiz oder in Deutschland liegt. Briefing entscheidet, nicht die Branche allein.</p></article>
-        </div>
-        <h3 style="margin-top:2rem" data-i18n="out.title">Nicht im Mandat</h3>
-        <ul class="clean">
-          <li data-i18n="out.1">Kaltakquise bei Privatpersonen (B2C)</li>
-          <li data-i18n="out.2">Callcenter, Massenmails, gekaufte Listen</li>
-          <li data-i18n="out.3">MLM und Strukturvertrieb</li>
-          <li data-i18n="out.4">Reichweiten-Kampagnen ohne definierte Zielgruppe</li>
+        <p class="intro" data-i18n="fields.body">B2B in der Schweiz und in Deutschland. Entscheidend sind Angebot, Zielkunde und die Chance auf einen Abschluss.</p>
+        <ul class="grid3">
+          <li><h3 data-i18n="f1.t">Software und SaaS</h3><p class="small" data-i18n="f1.x">Werkzeuge für KMU: von Branchensoftware bis Abo-Modell. Verkauf an Entscheider, nicht an die IT-Abteilung allein.</p></li>
+          <li><h3 data-i18n="f2.t">KI und Automatisierung</h3><p class="small" data-i18n="f2.x">Lösungen, die Zeit oder Kosten im Betrieb sparen. Nur wo der Nutzen im Gespräch greifbar wird – kein Techniktheater.</p></li>
+          <li><h3 data-i18n="f3.t">B2B-Dienstleistungen</h3><p class="small" data-i18n="f3.x">Beratung, Outsourcing, Facility, Schulung. Wer ein klares Angebot hat und in der Schweiz oder in Deutschland Kunden sucht.</p></li>
+          <li><h3 data-i18n="f4.t">Versicherungen im Firmenkundengeschäft</h3><p class="small" data-i18n="f4.x">B2B: Betriebe, nicht Haushalte. Kein Türgeschäft, keine Strukturvertriebs-Logik.</p></li>
+          <li><h3 data-i18n="f5.t">Handwerk und technische Lösungen</h3><p class="small" data-i18n="f5.x">Angebote für KMU – Maschinen, Unterhalt, Energie, Betriebstechnik. Abschluss, wo Bedarf und Budget zusammenpassen.</p></li>
+          <li><h3 data-i18n="f6.t">Industrie und Zulieferer</h3><p class="small" data-i18n="f6.x">Wenn das Produkt an Firmen geht und der Markt in der Schweiz oder in Deutschland liegt. Briefing entscheidet, nicht die Branche allein.</p></li>
         </ul>
-      </div>
-    </section>
+        <div class="rule">
+          <h3 data-i18n="out.title">Nicht im Mandat</h3>
+          <ul class="plain grid2">
+            <li data-i18n="out.1">Kaltakquise bei Privatpersonen (B2C)</li>
+            <li data-i18n="out.2">Callcenter, Massenmails, gekaufte Listen</li>
+            <li data-i18n="out.3">MLM und Strukturvertrieb</li>
+            <li data-i18n="out.4">Reichweiten-Kampagnen ohne definierte Zielgruppe</li>
+          </ul>
+        </div>
+      </section>
 
-    <section id="fuer-wen">
-      <div class="wrap">
+      <div id="fuer-wen" class="span-2 band">
         <p class="kicker" data-i18n="aud.kicker">Zielgruppen</p>
         <h2 data-i18n="aud.title">Für wen das Mandat gedacht ist</h2>
-        <div class="two" style="margin-top:1.5rem">
-          <article class="card"><p class="num" data-i18n="aud1.k">Für Anbieter</p><h3 data-i18n="aud1.t">Firmen ohne eigenen Aussendienst</h3><p data-i18n="aud1.x">Software, KI, Dienstleistungen, Versicherungen, Handwerkslösungen. Auch Anbieter aus dem Ausland, die hier keinen eigenen Aussendienst aufbauen. Die Seite gilt ihnen, nicht ihren Kunden.</p></article>
-          <article class="card"><p class="num" data-i18n="aud2.k">Für KMU</p><h3 data-i18n="aud2.t">Betriebe, die Kunden gewinnen wollen</h3><p data-i18n="aud2.x">5–100 Mitarbeitende. Ein Mandat statt einer Stelle: Pipeline, Landing Page oder Anzeigen, die Entscheider erreichen – nicht Reichweite um der Reichweite willen.</p></article>
-        </div>
       </div>
-    </section>
+      <article class="card">
+        <p class="kicker" data-i18n="aud1.k">Für Anbieter</p>
+        <h3 data-i18n="aud1.t">Firmen ohne eigenen Aussendienst</h3>
+        <p data-i18n="aud1.x">Software, KI, Dienstleistungen, Versicherungen, Handwerkslösungen. Auch Anbieter aus dem Ausland, die hier keinen eigenen Aussendienst aufbauen. Die Seite gilt ihnen, nicht ihren Kunden.</p>
+      </article>
+      <article class="card">
+        <p class="kicker" data-i18n="aud2.k">Für KMU</p>
+        <h3 data-i18n="aud2.t">Betriebe, die Kunden gewinnen wollen</h3>
+        <p data-i18n="aud2.x">5–100 Mitarbeitende. Ein Mandat statt einer Stelle: Pipeline, Landing Page oder Anzeigen, die Entscheider erreichen – nicht Reichweite um der Reichweite willen.</p>
+      </article>
 
-    <section id="arbeitsweise">
-      <div class="wrap">
+      <section id="arbeitsweise" class="tile span-2">
         <p class="kicker" data-i18n="met.kicker">Arbeitsweise</p>
         <h2 data-i18n="met.title">So läuft die Zusammenarbeit</h2>
-        <p class="lede" data-i18n="met.body">Schlank, klar geregelt. Sie behalten Produkt und Konditionen – ich übernehme Marktzugang, Seite oder Schaltung.</p>
-        <div class="grid-2" style="margin-top:1.5rem">
-          <article class="item"><h3 data-i18n="w1.t">Eine Person, kein Account-Team</h3><p data-i18n="w1.x">HiTekKi wird von Tim Fischer betrieben. Sie sprechen mit dem, der akquiriert, baut und schaltet – nicht mit einer Weiterleitung.</p></article>
-          <article class="item"><h3 data-i18n="w2.t">Vorab oder Einsatzpauschale</h3><p data-i18n="w2.x">Ein Mandat startet mit einer vereinbarten Vorabzahlung oder einer monatlichen Einsatzpauschale. Sie deckt Briefing, Zeit und Setup – nicht den Erfolg.</p></article>
-          <article class="item"><h3 data-i18n="w3.t">Erfolg zusätzlich</h3><p data-i18n="w3.x">Darüber: Provision auf den Abschluss oder ein Betrag pro qualifiziertem Lead oder Termin. Reine Provision ohne Einsatz ist möglich, aber selten tragfähig – und hier nicht der Standard.</p></article>
-          <article class="item"><h3 data-i18n="w4.t">Fremdkosten getrennt</h3><p data-i18n="w4.x">Anzeigenbudget geht an Google, LinkedIn oder Meta, nicht in meine Rechnung als Marge. Websites und Landing Pages als klares Projektmandat.</p></article>
-          <article class="item"><h3 data-i18n="w5.t">Remote, Besuch nach Absprache</h3><p data-i18n="w5.x">Der Alltag ist Telefon und Video-Call, von Zürich aus. Dazu kurze animierte Erklärfilme, wenn das Angebot eine Bildfolge braucht. Vor Ort komme ich, wenn wir den Termin vorher vereinbaren und mich die Sache selbst überzeugt. Sprache mit Entscheidern: Hochdeutsch. Mit dem Auftraggeber auch Englisch.</p></article>
-          <article class="item"><h3 data-i18n="w6.t">Mehrere Mandate möglich</h3><p data-i18n="w6.x">Parallele Mandate, wenn sie sich nicht konkurrenzieren. Interessenkonflikte werden vorab genannt.</p></article>
-          <article class="item"><h3 data-i18n="w7.t">Stand sichtbar</h3><p data-i18n="w7.x">Regelmässige Abstimmung: Pipeline, Seiten, Kampagnen. Keine Blackbox.</p></article>
+        <p class="intro" data-i18n="met.body">Schlank, klar geregelt. Sie behalten Produkt und Konditionen – ich übernehme Marktzugang, Seite oder Schaltung.</p>
+        <div>
+          <div class="split"><h3 data-i18n="w1.t">Eine Person, kein Account-Team</h3><p class="small" data-i18n="w1.x">HiTekKi wird von Tim Fischer betrieben. Sie sprechen mit dem, der akquiriert, baut und schaltet – nicht mit einer Weiterleitung.</p></div>
+          <div class="split"><h3 data-i18n="w2.t">Vorab oder Einsatzpauschale</h3><p class="small" data-i18n="w2.x">Ein Mandat startet mit einer vereinbarten Vorabzahlung oder einer monatlichen Einsatzpauschale. Sie deckt Briefing, Zeit und Setup – nicht den Erfolg.</p></div>
+          <div class="split"><h3 data-i18n="w3.t">Erfolg zusätzlich</h3><p class="small" data-i18n="w3.x">Darüber: Provision auf den Abschluss oder ein Betrag pro qualifiziertem Lead oder Termin. Reine Provision ohne Einsatz ist möglich, aber selten tragfähig – und hier nicht der Standard.</p></div>
+          <div class="split"><h3 data-i18n="w4.t">Fremdkosten getrennt</h3><p class="small" data-i18n="w4.x">Anzeigenbudget geht an Google, LinkedIn oder Meta, nicht in meine Rechnung als Marge. Websites und Landing Pages als klares Projektmandat.</p></div>
+          <div class="split"><h3 data-i18n="w5.t">Remote, Besuch nach Absprache</h3><p class="small" data-i18n="w5.x">Der Alltag ist Telefon und Video-Call, von Zürich aus. Dazu kurze animierte Erklärfilme, wenn das Angebot eine Bildfolge braucht. Vor Ort komme ich, wenn wir den Termin vorher vereinbaren und mich die Sache selbst überzeugt. Sprache mit Entscheidern: Hochdeutsch. Mit dem Auftraggeber auch Englisch.</p></div>
+          <div class="split"><h3 data-i18n="w6.t">Mehrere Mandate möglich</h3><p class="small" data-i18n="w6.x">Parallele Mandate, wenn sie sich nicht konkurrenzieren. Interessenkonflikte werden vorab genannt.</p></div>
+          <div class="split"><h3 data-i18n="w7.t">Stand sichtbar</h3><p class="small" data-i18n="w7.x">Regelmässige Abstimmung: Pipeline, Seiten, Kampagnen. Keine Blackbox.</p></div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="ansatz">
-      <div class="wrap">
+      <section id="ansatz" class="tile span-2">
         <p class="kicker" data-i18n="app.kicker">Ansatz</p>
         <h2 data-i18n="app.title">Ein Ablauf, zwei Märkte. Remote als Standard.</h2>
-        <p class="lede" data-i18n="app.body">Ich sitze in Zürich. Telefon, Video-Call, schriftliche Übergabe. Dazu kurze animierte Erklärfilme, wenn Worte allein nicht reichen. Ein Besuch ist die Ausnahme: nach Absprache, und nur wenn mich der Auftrag selbst überzeugt. Markt: Schweiz und Deutschland. Nicht Romandie, nicht Tessin, nicht weltweit.</p>
-        <div class="two" style="margin-top:1.5rem">
-          <article class="card"><h3 data-i18n="mk1.t">Schweiz</h3><p data-i18n="mk1.x">Entscheider anrufen, Bedarf klären, Termin oder Abschluss. Die Wege kenne ich. Ein Besuch nur nach Absprache, wenn ich selbst hinter der Sache stehe.</p></article>
-          <article class="card"><h3 data-i18n="mk2.t">Deutschland</h3><p data-i18n="mk2.x">Derselbe Ablauf, von Zürich aus. Das Gespräch ist die Leistung. Vor Ort nur nach Absprache, wenn mich der Auftrag überzeugt.</p></article>
+        <p class="intro" data-i18n="app.body">Ich sitze in Zürich. Telefon, Video-Call, schriftliche Übergabe. Dazu kurze animierte Erklärfilme, wenn Worte allein nicht reichen. Ein Besuch ist die Ausnahme: nach Absprache, und nur wenn mich der Auftrag selbst überzeugt. Markt: Schweiz und Deutschland. Nicht Romandie, nicht Tessin, nicht weltweit.</p>
+        <div class="grid2">
+          <article><h3 data-i18n="mk1.t">Schweiz</h3><p class="small" data-i18n="mk1.x">Entscheider anrufen, Bedarf klären, Termin oder Abschluss. Die Wege kenne ich. Ein Besuch nur nach Absprache, wenn ich selbst hinter der Sache stehe.</p></article>
+          <article><h3 data-i18n="mk2.t">Deutschland</h3><p class="small" data-i18n="mk2.x">Derselbe Ablauf, von Zürich aus. Das Gespräch ist die Leistung. Vor Ort nur nach Absprache, wenn mich der Auftrag überzeugt.</p></article>
         </div>
-        <div class="grid-2" style="margin-top:1.5rem">
-          <article class="item"><p class="num">01</p><h3 data-i18n="d1.t">Liste</h3><p data-i18n="d1.x">Am Vortag: Firma, Entscheider, warum gerade die. Kein Wählen ohne diesen Satz.</p></article>
-          <article class="item"><p class="num">02</p><h3 data-i18n="d2.t">Anruf</h3><p data-i18n="d2.x">Kurz. Wer ich bin, was ich gesehen habe, eine Frage. Dann schweigen.</p></article>
-          <article class="item"><p class="num">03</p><h3 data-i18n="d3.t">Termin</h3><p data-i18n="d3.x">Wenn Bedarf da ist: Gespräch in den Kalender. Sonst sauber beenden.</p></article>
-          <article class="item"><p class="num">04</p><h3 data-i18n="d4.t">Notiz</h3><p data-i18n="d4.x">Firma, Person, Bedarf, nächster Schritt. Das geht an Sie, nicht eine Liste von Namen.</p></article>
-        </div>
-      </div>
-    </section>
+        <ol class="grid4 rule">
+          <li><p class="num">01</p><h3 data-i18n="d1.t">Liste</h3><p class="small" data-i18n="d1.x">Am Vortag: Firma, Entscheider, warum gerade die. Kein Wählen ohne diesen Satz.</p></li>
+          <li><p class="num">02</p><h3 data-i18n="d2.t">Anruf</h3><p class="small" data-i18n="d2.x">Kurz. Wer ich bin, was ich gesehen habe, eine Frage. Dann schweigen.</p></li>
+          <li><p class="num">03</p><h3 data-i18n="d3.t">Termin</h3><p class="small" data-i18n="d3.x">Wenn Bedarf da ist: Gespräch in den Kalender. Sonst sauber beenden.</p></li>
+          <li><p class="num">04</p><h3 data-i18n="d4.t">Notiz</h3><p class="small" data-i18n="d4.x">Firma, Person, Bedarf, nächster Schritt. Das geht an Sie, nicht eine Liste von Namen.</p></li>
+        </ol>
+      </section>
 
-    <section id="warum">
-      <div class="wrap">
+      <div id="warum" class="span-2 band">
         <p class="kicker" data-i18n="why.kicker">Begründung</p>
         <h2 data-i18n="why.title">Warum HiTekKi – und nicht eine Stelle</h2>
-        <div class="grid-2" style="margin-top:1.5rem">
-          <article class="item"><h3 data-i18n="r1.t">Verkaufen und die Mittel dazu</h3><p data-i18n="r1.x">Abschluss ist das Ziel. Website, Landing Page und Anzeigen sind Werkzeuge – nicht das Produkt, das ich Ihnen verkaufe, um beschäftigt zu wirken.</p></article>
-          <article class="item"><h3 data-i18n="r2.t">Schweiz und Deutschland</h3><p data-i18n="r2.x">Zwei Märkte, ein Ton: Hochdeutsch. In der Schweiz die hiesigen Entscheidungswege. In Deutschland derselbe Ablauf. Besuch in beiden nur nach Absprache.</p></article>
-          <article class="item"><h3 data-i18n="r3.t">Einsatz plus Erfolg</h3><p data-i18n="r3.x">Vorab für die Arbeit, Provision für den Abschluss. Keine Stelle, keine Dumping-Provision als Lockangebot auf der Website. Beträge ins Briefing.</p></article>
-          <article class="item"><h3 data-i18n="r4.t">Kein Aufbau intern nötig</h3><p data-i18n="r4.x">Sie stellen niemanden an. Kein Recruiting, keine Einarbeitung, keine Fixkosten für eine Stelle, die erst verdient werden muss.</p></article>
-        </div>
       </div>
-    </section>
+      <article class="reason"><h3 data-i18n="r1.t">Verkaufen und die Mittel dazu</h3><p data-i18n="r1.x">Abschluss ist das Ziel. Website, Landing Page und Anzeigen sind Werkzeuge – nicht das Produkt, das ich Ihnen verkaufe, um beschäftigt zu wirken.</p></article>
+      <article class="reason"><h3 data-i18n="r2.t">Schweiz und Deutschland</h3><p data-i18n="r2.x">Zwei Märkte, ein Ton: Hochdeutsch. In der Schweiz die hiesigen Entscheidungswege. In Deutschland derselbe Ablauf. Besuch in beiden nur nach Absprache.</p></article>
+      <article class="reason"><h3 data-i18n="r3.t">Einsatz plus Erfolg</h3><p data-i18n="r3.x">Vorab für die Arbeit, Provision für den Abschluss. Keine Stelle, keine Dumping-Provision als Lockangebot auf der Website. Beträge ins Briefing.</p></article>
+      <article class="reason"><h3 data-i18n="r4.t">Kein Aufbau intern nötig</h3><p data-i18n="r4.x">Sie stellen niemanden an. Kein Recruiting, keine Einarbeitung, keine Fixkosten für eine Stelle, die erst verdient werden muss.</p></article>
 
-    <section id="ablauf">
-      <div class="wrap">
+      <div id="ablauf" class="span-2 band">
         <p class="kicker" data-i18n="pro.kicker">Ablauf</p>
         <h2 data-i18n="pro.title">Vier Schritte bis zum Mandat</h2>
-        <div class="grid-2" style="margin-top:1.5rem">
-          <article class="item"><p class="num">01</p><h3 data-i18n="s1.t">Kontakt</h3><p data-i18n="s1.x">Kurzes Gespräch. Wir prüfen, ob ein Mandat Sinn ergibt – und welches.</p></article>
-          <article class="item"><p class="num">02</p><h3 data-i18n="s2.t">Briefing</h3><p data-i18n="s2.x">Angebot, Zielkunden, vorhandene Leads, Seite, Kanäle, Einsatz und Erfolgskomponente. Klarheit vor der ersten Aktion.</p></article>
-          <article class="item"><p class="num">03</p><h3 data-i18n="s3.t">Umsetzung</h3><p data-i18n="s3.x">Akquise, Nachfassen, Seite oder gezielte Schaltung. Regelmässige Abstimmung, keine Blackbox.</p></article>
-          <article class="item"><p class="num">04</p><h3 data-i18n="s4.t">Ergebnis</h3><p data-i18n="s4.x">Abschluss, qualifizierte Leads, live geschaltete Seite oder messbare Sichtbarkeit – je nach Mandat.</p></article>
-        </div>
       </div>
-    </section>
+      <article class="reason"><p class="num">01</p><h3 data-i18n="s1.t">Kontakt</h3><p data-i18n="s1.x">Kurzes Gespräch. Wir prüfen, ob ein Mandat Sinn ergibt – und welches.</p></article>
+      <article class="reason"><p class="num">02</p><h3 data-i18n="s2.t">Briefing</h3><p data-i18n="s2.x">Angebot, Zielkunden, vorhandene Leads, Seite, Kanäle, Einsatz und Erfolgskomponente. Klarheit vor der ersten Aktion.</p></article>
+      <article class="reason"><p class="num">03</p><h3 data-i18n="s3.t">Umsetzung</h3><p data-i18n="s3.x">Akquise, Nachfassen, Seite oder gezielte Schaltung. Regelmässige Abstimmung, keine Blackbox.</p></article>
+      <article class="reason"><p class="num">04</p><h3 data-i18n="s4.t">Ergebnis</h3><p data-i18n="s4.x">Abschluss, qualifizierte Leads, live geschaltete Seite oder messbare Sichtbarkeit – je nach Mandat.</p></article>
 
-    <section id="fragen">
-      <div class="wrap">
+      <section id="fragen" class="tile span-2">
         <p class="kicker" data-i18n="faq.kicker">Fragen</p>
         <h2 data-i18n="faq.title">Was Firmen vor dem Mandat klären</h2>
-        <p class="lede" data-i18n="faq.body">Kurz und ohne Folien. Was offen bleibt, gehört ins erste Gespräch.</p>
-        <p class="faq-tools"><button class="btn ghost" type="button" data-faq-toggle data-open="0" data-i18n="faq.open">Alle öffnen</button></p>
-        <div id="faq-list">
-          <details><summary data-i18n="q1">Was ist HiTekKi?</summary><p data-i18n="a1">Die Marke für meine Arbeit: Vertrieb, Technik, Sichtbarkeit. Betreiber bin ich, Tim Fischer, selbstständig in Zürich. Kein Team hinter der Kulisse, kein Dialekt, keine Agentur mit zehn Logos.</p></details>
-          <details><summary data-i18n="q2">Für wen ist diese Seite?</summary><p data-i18n="a2">Für Firmen, die in der Schweiz oder in Deutschland verkaufen wollen. Der Auftraggeber darf im Ausland sitzen. Mit ihm spreche ich Deutsch oder Englisch, mit seinen Kunden auf Hochdeutsch.</p></details>
-          <details><summary data-i18n="q3">Sind Sie angestellt oder selbstständig?</summary><p data-i18n="a3">Selbstständig. Eigene Rechnung, kein Arbeitsvertrag. Sie beauftragen ein Mandat. Das ist für Partner und Sozialversicherungen der saubere Weg.</p></details>
-          <details><summary data-i18n="q4">Wie wird vergütet?</summary><p data-i18n="a4">Drei Teile, klar getrennt: eine Vorabzahlung oder Einsatzpauschale für die Arbeit; Provision oder Betrag pro qualifiziertem Lead, wenn es um Vertrieb geht; Anzeigenbudget direkt an die Plattform. Websites als Projektmandat. Beträge im Gespräch, nicht als Dumping auf der Seite.</p></details>
-          <details><summary data-i18n="q5">Warum nicht rein auf Provision?</summary><p data-i18n="a5">Weil seriöse Akquise Zeit kostet, bevor der erste Abschluss da ist. Ohne Einsatz tragen nur Mandate mit sehr hoher Abschlusswahrscheinlichkeit. Ein kleines Fixum oder eine Vorabzahlung filtert ausserdem Anfragen, die nicht ernst gemeint sind – für beide Seiten.</p></details>
-          <details><summary data-i18n="q6">Bauen Sie auch Websites?</summary><p data-i18n="a6">Ja – Seiten und Landing Pages, die Anfragen oder Abschlüsse tragen. Kein Design um des Designs willen.</p></details>
-          <details><summary data-i18n="q7">Schalten Sie Werbung und Social Media?</summary><p data-i18n="a7">Ja, zielgerichtet: Suchanzeigen, LinkedIn, wo nötig Meta. Zielgruppe und Angebot zuerst, Kanal danach. Kein TikTok-Entertainment, keine Reichweite ohne Entscheider.</p></details>
-          <details><summary data-i18n="q8">Arbeiten Sie nur neue Kunden oder auch unseren Bestand?</summary><p data-i18n="a8">Beides. Neue Akquise, Leadgenerierung für Ihr Team oder Nachfassen von CRM, Messekontakten und offenen Offerten.</p></details>
-          <details><summary data-i18n="q9">In welchem Gebiet sind Sie unterwegs?</summary><p data-i18n="a9">Sitz Zürich. Normalfall ist Telefon und Video-Call, in der Schweiz und in Deutschland. Ein Besuch ist möglich, vorher abgesprochen, und nur wenn mich der Auftrag selbst überzeugt.</p></details>
-          <details><summary data-i18n="q10">Sprechen Sie Schweizerdeutsch?</summary><p data-i18n="a10">Nein. Gespräche mit Entscheidern auf Hochdeutsch. Das gilt in der Schweiz und in Deutschland. Mit dem Auftraggeber auch auf Englisch.</p></details>
-          <details><summary data-i18n="q11">Machen Sie auch Erklärvideos?</summary><p data-i18n="a11">Ja. Kurze, einfach animierte Filme und Video-Präsentationen, die ein Angebot verständlich machen. Kein Kamerateam, kein Hochglanz. Der Film dient dem Gespräch, nicht der Selbstdarstellung.</p></details>
-          <details><summary data-i18n="q12">Warum steht keine Telefonnummer auf der Seite?</summary><p data-i18n="a12">Weil ich Anfragen zuerst prüfe: Firma, Angebot, ob ein Mandat sinnvoll ist. Danach der Rückruf. Keine öffentliche Nummer, keine ungefilterten Anrufe.</p></details>
-          <details><summary data-i18n="q13">Kommen Sie vor Ort?</summary><p data-i18n="a13">Nach Absprache, ja. Remote bleibt der Normalfall. Ich komme, wenn der Termin vorher steht und mich die Sache selbst interessiert. Nicht als Aussendienst auf Abruf.</p></details>
-          <details><summary data-i18n="q14">Auch Romandie oder Tessin?</summary><p data-i18n="a14">Nein. Gespräche mit Entscheidern auf Hochdeutsch. Markt ist die Schweiz und Deutschland, nicht die französisch- oder italienischsprachige Schweiz.</p></details>
-          <details><summary data-i18n="q15">Wann lehnen Sie ein Mandat ab?</summary><p data-i18n="a15">Wenn Angebot, Markt oder Konditionen nicht tragen. Lieber kein Mandat als Aktivität ohne Abschlusschance.</p></details>
+        <p class="intro" data-i18n="faq.body">Kurz und ohne Folien. Was offen bleibt, gehört ins erste Gespräch.</p>
+        <button class="faq-root" type="button" data-faq-root aria-expanded="false">
+          <span data-i18n="faq.kicker">Fragen</span><span class="plus" aria-hidden="true">+</span>
+        </button>
+        <div id="faq-items" hidden>
+          <button class="faq-all" type="button" data-faq-toggle data-i18n="faq.open">Alle öffnen</button>
+          <div class="qa"><button class="q" type="button" aria-expanded="false"><span data-i18n="q1">Was ist HiTekKi?</span><span class="plus">+</span></button><p class="answer" data-i18n="a1" hidden>Die Marke für meine Arbeit: Vertrieb, Technik, Sichtbarkeit. Betreiber bin ich, Tim Fischer, selbstständig in Zürich. Kein Team hinter der Kulisse, kein Dialekt, keine Agentur mit zehn Logos.</p></div>
+          <div class="qa"><button class="q" type="button" aria-expanded="false"><span data-i18n="q2">Für wen ist diese Seite?</span><span class="plus">+</span></button><p class="answer" data-i18n="a2" hidden>Für Firmen, die in der Schweiz oder in Deutschland verkaufen wollen. Der Auftraggeber darf im Ausland sitzen. Mit ihm spreche ich Deutsch oder Englisch, mit seinen Kunden auf Hochdeutsch.</p></div>
+          <div class="qa"><button class="q" type="button" aria-expanded="false"><span data-i18n="q3">Sind Sie angestellt oder selbstständig?</span><span class="plus">+</span></button><p class="answer" data-i18n="a3" hidden>Selbstständig. Eigene Rechnung, kein Arbeitsvertrag. Sie beauftragen ein Mandat. Das ist für Partner und Sozialversicherungen der saubere Weg.</p></div>
+          <div class="qa"><button class="q" type="button" aria-expanded="false"><span data-i18n="q4">Wie wird vergütet?</span><span class="plus">+</span></button><p class="answer" data-i18n="a4" hidden>Drei Teile, klar getrennt: eine Vorabzahlung oder Einsatzpauschale für die Arbeit; Provision oder Betrag pro qualifiziertem Lead, wenn es um Vertrieb geht; Anzeigenbudget direkt an die Plattform. Websites als Projektmandat. Beträge im Gespräch, nicht als Dumping auf der Seite.</p></div>
+          <div class="qa"><button class="q" type="button" aria-expanded="false"><span data-i18n="q5">Warum nicht rein auf Provision?</span><span class="plus">+</span></button><p class="answer" data-i18n="a5" hidden>Weil seriöse Akquise Zeit kostet, bevor der erste Abschluss da ist. Ohne Einsatz tragen nur Mandate mit sehr hoher Abschlusswahrscheinlichkeit. Ein kleines Fixum oder eine Vorabzahlung filtert ausserdem Anfragen, die nicht ernst gemeint sind – für beide Seiten.</p></div>
+          <div class="qa"><button class="q" type="button" aria-expanded="false"><span data-i18n="q6">Bauen Sie auch Websites?</span><span class="plus">+</span></button><p class="answer" data-i18n="a6" hidden>Ja – Seiten und Landing Pages, die Anfragen oder Abschlüsse tragen. Kein Design um des Designs willen.</p></div>
+          <div class="qa"><button class="q" type="button" aria-expanded="false"><span data-i18n="q7">Schalten Sie Werbung und Social Media?</span><span class="plus">+</span></button><p class="answer" data-i18n="a7" hidden>Ja, zielgerichtet: Suchanzeigen, LinkedIn, wo nötig Meta. Zielgruppe und Angebot zuerst, Kanal danach. Kein TikTok-Entertainment, keine Reichweite ohne Entscheider.</p></div>
+          <div class="qa"><button class="q" type="button" aria-expanded="false"><span data-i18n="q8">Arbeiten Sie nur neue Kunden oder auch unseren Bestand?</span><span class="plus">+</span></button><p class="answer" data-i18n="a8" hidden>Beides. Neue Akquise, Leadgenerierung für Ihr Team oder Nachfassen von CRM, Messekontakten und offenen Offerten.</p></div>
+          <div class="qa"><button class="q" type="button" aria-expanded="false"><span data-i18n="q9">In welchem Gebiet sind Sie unterwegs?</span><span class="plus">+</span></button><p class="answer" data-i18n="a9" hidden>Sitz Zürich. Normalfall ist Telefon und Video-Call, in der Schweiz und in Deutschland. Ein Besuch ist möglich, vorher abgesprochen, und nur wenn mich der Auftrag selbst überzeugt.</p></div>
+          <div class="qa"><button class="q" type="button" aria-expanded="false"><span data-i18n="q10">Sprechen Sie Schweizerdeutsch?</span><span class="plus">+</span></button><p class="answer" data-i18n="a10" hidden>Nein. Gespräche mit Entscheidern auf Hochdeutsch. Das gilt in der Schweiz und in Deutschland. Mit dem Auftraggeber auch auf Englisch.</p></div>
+          <div class="qa"><button class="q" type="button" aria-expanded="false"><span data-i18n="q11">Machen Sie auch Erklärvideos?</span><span class="plus">+</span></button><p class="answer" data-i18n="a11" hidden>Ja. Kurze, einfach animierte Filme und Video-Präsentationen, die ein Angebot verständlich machen. Kein Kamerateam, kein Hochglanz. Der Film dient dem Gespräch, nicht der Selbstdarstellung.</p></div>
+          <div class="qa"><button class="q" type="button" aria-expanded="false"><span data-i18n="q12">Warum steht keine Telefonnummer auf der Seite?</span><span class="plus">+</span></button><p class="answer" data-i18n="a12" hidden>Weil ich Anfragen zuerst prüfe: Firma, Angebot, ob ein Mandat sinnvoll ist. Danach der Rückruf. Keine öffentliche Nummer, keine ungefilterten Anrufe.</p></div>
+          <div class="qa"><button class="q" type="button" aria-expanded="false"><span data-i18n="q13">Kommen Sie vor Ort?</span><span class="plus">+</span></button><p class="answer" data-i18n="a13" hidden>Nach Absprache, ja. Remote bleibt der Normalfall. Ich komme, wenn der Termin vorher steht und mich die Sache selbst interessiert. Nicht als Aussendienst auf Abruf.</p></div>
+          <div class="qa"><button class="q" type="button" aria-expanded="false"><span data-i18n="q14">Auch Romandie oder Tessin?</span><span class="plus">+</span></button><p class="answer" data-i18n="a14" hidden>Nein. Gespräche mit Entscheidern auf Hochdeutsch. Markt ist die Schweiz und Deutschland, nicht die französisch- oder italienischsprachige Schweiz.</p></div>
+          <div class="qa"><button class="q" type="button" aria-expanded="false"><span data-i18n="q15">Wann lehnen Sie ein Mandat ab?</span><span class="plus">+</span></button><p class="answer" data-i18n="a15" hidden>Wenn Angebot, Markt oder Konditionen nicht tragen. Lieber kein Mandat als Aktivität ohne Abschlusschance.</p></div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="kontakt">
-      <div class="wrap split">
-        <div>
-          <p class="kicker" data-i18n="con.kicker">Kontakt</p>
-          <h2 data-i18n="con.title">Erstes Gespräch. Ohne Folien, ohne Pitch-Theater.</h2>
-          <p class="lede" data-i18n="con.body">Anfrage über das Formular. Ich recherchiere kurz, ob ein Mandat passt – und melde mich dann. Keine öffentliche Telefonnummer, keine Kaltanrufe bei mir.</p>
-          <dl class="meta">
-            <div><dt data-i18n="con.email">E-Mail</dt><dd><a href="mailto:kontakt@hitekki.ch">kontakt@hitekki.ch</a></dd></div>
-            <div><dt data-i18n="con.callback">Rückruf</dt><dd data-i18n="con.callbackValue">Nach Prüfung der Anfrage, nicht öffentlich</dd></div>
-            <div><dt data-i18n="con.location">Standort</dt><dd>Zürich</dd></div>
-          </dl>
-        </div>
-        <div>
-          <form data-form novalidate>
-            <label><span data-i18n="form.name">Name</span><input name="name" autocomplete="name" required><span class="error" data-err="name"></span></label>
-            <label><span data-i18n="form.company">Firma</span><input name="company" autocomplete="organization" required><span class="error" data-err="company"></span></label>
-            <div class="form-row">
-              <label><span data-i18n="form.email">E-Mail</span><input name="email" type="email" autocomplete="email" required><span class="error" data-err="email"></span></label>
-              <label><span data-i18n="form.phone">Ihre Telefonnummer</span><input name="phone" type="tel" autocomplete="tel" required><span class="error" data-err="phone"></span></label>
+      <section id="kontakt" class="tile span-2">
+        <div class="contact">
+          <div>
+            <p class="kicker" data-i18n="con.kicker">Kontakt</p>
+            <h2 data-i18n="con.title">Erstes Gespräch. Ohne Folien, ohne Pitch-Theater.</h2>
+            <p class="intro" data-i18n="con.body">Anfrage über das Formular. Ich recherchiere kurz, ob ein Mandat passt – und melde mich dann. Keine öffentliche Telefonnummer, keine Kaltanrufe bei mir.</p>
+            <dl class="meta">
+              <div><dt data-i18n="con.email">E-Mail</dt><dd><a href="mailto:kontakt@hitekki.ch">kontakt@hitekki.ch</a></dd></div>
+              <div><dt data-i18n="con.callback">Rückruf</dt><dd data-i18n="con.callbackValue">Nach Prüfung der Anfrage, nicht öffentlich</dd></div>
+              <div><dt data-i18n="con.location">Standort</dt><dd>Zürich, Schweiz</dd></div>
+            </dl>
+          </div>
+          <div>
+            <div data-thanks class="thanks hide">
+              <h2 data-i18n="form.thanks">Danke für die Anfrage.</h2>
+              <p class="small" data-i18n="form.thanksBody">Ich prüfe, ob ein Mandat passt, und melde mich in der Regel innerhalb von zwei Arbeitstagen.</p>
             </div>
-            <label><span data-i18n="form.message">Nachricht</span><textarea name="message" data-i18n-ph="form.ph" placeholder="Worum geht es – Vertrieb, Website, Sichtbarkeit?" required></textarea><span class="error" data-err="message"></span></label>
-            <button class="btn" type="submit" data-i18n="form.submit">Anfrage senden</button>
-            <p class="muted" data-i18n="form.note">Standort Zürich. Ich rufe zurück, nachdem ich die Anfrage geprüft habe – nicht umgekehrt.</p>
-          </form>
-          <div class="card thanks" data-thanks>
-            <h3 data-i18n="form.thanks">Danke für die Anfrage.</h3>
-            <p data-i18n="form.thanksBody">Ich prüfe, ob ein Mandat passt, und melde mich in der Regel innerhalb von zwei Arbeitstagen.</p>
+            <form data-form novalidate>
+              <input class="honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <div><label for="name" data-i18n="form.name">Name</label><input id="name" name="name" autocomplete="name" /><p class="err" data-err="name"></p></div>
+              <div><label for="company" data-i18n="form.company">Firma</label><input id="company" name="company" autocomplete="organization" /><p class="err" data-err="company"></p></div>
+              <div class="pair">
+                <div><label for="email" data-i18n="form.email">E-Mail</label><input id="email" name="email" type="email" autocomplete="email" /><p class="err" data-err="email"></p></div>
+                <div><label for="phone" data-i18n="form.phone">Ihre Telefonnummer</label><input id="phone" name="phone" type="tel" autocomplete="tel" /><p class="err" data-err="phone"></p></div>
+              </div>
+              <div><label for="message" data-i18n="form.message">Nachricht</label><textarea id="message" name="message" rows="5" data-i18n-ph="form.ph" placeholder="Worum geht es – Vertrieb, Website, Sichtbarkeit?"></textarea><p class="err" data-err="message"></p></div>
+              <button class="submit" type="submit" data-i18n="form.submit">Anfrage senden</button>
+              <p class="error" data-form-error></p>
+              <p class="fine" data-i18n="form.note">Standort Zürich. Die Anfrage geht direkt an mich. Ich rufe zurück, nachdem ich sie geprüft habe.</p>
+            </form>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </main>
 
-  <footer class="footer">
-    <div class="wrap foot-grid">
+  <footer class="foot">
+    <div class="foot-inner">
       <div>
-        <a class="logo" href="index.html">
-          <span class="bolt" aria-hidden="true"><svg viewBox="0 0 76 136" fill="currentColor"><path d="M64.5 3 42.5 58.5H73L11.5 133 33.5 77.5H3Z"/></svg></span>
-          <span><strong>HiTekKi</strong><small>Vertrieb · Technik · Sichtbarkeit</small></span>
+        <a class="logo" href="/" aria-label="HiTekKi, Startseite">
+          <span class="mark" aria-hidden="true"><svg viewBox="0 0 76 136"><path d="M64.5 3 42.5 58.5H73L11.5 133 33.5 77.5H3Z"/></svg></span>
+          HiTekKi
         </a>
-        <p class="dim" data-i18n="foot.blurb">Persönlich betrieben von Tim Fischer in Zürich. Am Telefon und per Video in der Schweiz und in Deutschland. Internationale Auftraggeber sind willkommen.</p>
+        <p data-i18n="foot.blurb">Persönlich betrieben von Tim Fischer in Zürich. Am Telefon und per Video in der Schweiz und in Deutschland. Internationale Auftraggeber sind willkommen.</p>
       </div>
-      <div class="legal-links">
-        <div>
-          <p class="num" data-i18n="foot.contact">Kontakt</p>
-          <p>Zürich</p>
-          <p><a href="mailto:kontakt@hitekki.ch">kontakt@hitekki.ch</a></p>
-          <p class="dim" data-i18n="foot.callback">Rückruf nach Prüfung der Anfrage</p>
-        </div>
-        <div>
-          <p class="num" data-i18n="foot.page">Seite</p>
-          <p><a href="#leistungen" data-i18n="foot.services">Leistungen</a></p>
-          <p><a href="#einsatz" data-i18n="foot.fields">Einsatzfelder</a></p>
-          <p><a href="#fragen" data-i18n="foot.questions">Fragen</a></p>
-          <p><a href="impressum.html" data-i18n="foot.imprint">Impressum</a></p>
-          <p><a href="datenschutz.html" data-i18n="foot.privacy">Datenschutz</a></p>
-        </div>
+      <div class="col">
+        <h2 data-i18n="foot.page">Seite</h2>
+        <a href="#leistungen" data-i18n="foot.services">Leistungen</a>
+        <a href="#einsatz" data-i18n="foot.fields">Einsatzfelder</a>
+        <a href="#ablauf" data-i18n="nav.process">Ablauf</a>
+        <a href="#fragen" data-i18n="foot.questions">Fragen</a>
+      </div>
+      <div class="col">
+        <h2 data-i18n="foot.contact">Kontakt</h2>
+        <p>Zürich, Schweiz</p>
+        <a href="mailto:kontakt@hitekki.ch">kontakt@hitekki.ch</a>
+        <p data-i18n="foot.callback">Rückruf nach Prüfung der Anfrage</p>
+        <a href="/impressum" data-i18n="foot.imprint">Impressum</a>
+        <a href="/datenschutz" data-i18n="foot.privacy">Datenschutz</a>
       </div>
     </div>
-    <div class="wrap foot-bottom">
-      <p>© 2026 HiTekKi</p>
-      <p>Zürich · Schweiz</p>
-    </div>
+    <div class="legal-line"><div class="foot-inner"><p>© 2026 HiTekKi. Tim Fischer.</p><p>Zürich · Schweiz</p></div></div>
   </footer>
-  <script src="script.js?v=9"></script>
-<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"1bae0c1ed6564cd18f47fe563f49bcaf","r":1,"spa":2}' crossorigin="anonymous"></script>
+  <script src="/script.js?v=10"></script>
 </body>
 </html>

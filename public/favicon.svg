@@ -1,4 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76 136">
-  <rect width="76" height="136" fill="#1a1916"/>
-  <path d="M64.5 3 42.5 58.5H73L11.5 133 33.5 77.5H3Z" fill="#f4f2ec"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="HiTekKi">
+  <rect width="32" height="32" rx="4" fill="#1D1D1F"/>
+  <g transform="translate(8.18 2) scale(0.2059)">
+    <path fill="#FFFFFF" d="M64.5 3 42.5 58.5H73L11.5 133 33.5 77.5H3Z"/>
+  </g>
 </svg>

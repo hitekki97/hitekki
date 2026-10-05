@@ -214,8 +214,24 @@ const en = {
   "foot.questions": "Questions",
   "foot.imprint": "Imprint",
   "foot.privacy": "Privacy",
-  "foot.back": "Back to the start"
+  "foot.back": "Back to the start",
+  "skip": "Skip to content",
+  "shop.all": "All",
+  "shop.sales": "Sales",
+  "shop.build": "Build",
+  "shop.visibility": "Visibility",
+  "shop.see": "View",
+  "shop.watch": "Watch the film",
+  "shop.note": "No prices on the page. Retainer and success fee in the conversation.",
+  "shop.webTitle": "Sites and landing pages",
+  "shop.webText": "Pages that carry enquiries or closes. No design for its own sake.",
+  "shop.filmTitle": "Explainer films",
+  "shop.filmText": "Short, simply animated films that make an offer clear in minutes. No crew, no brand film.",
+  "shop.adsTitle": "Visibility with an audience",
+  "foot.legal": "This notice is in German.",
 };
+
+
 
 const deErr = {
   name: "Bitte Namen angeben.",
@@ -226,26 +242,20 @@ const deErr = {
 };
 
 const original = new Map();
-
-function nodes() {
-  return document.querySelectorAll("[data-i18n]");
-}
-
+function nodes() { return document.querySelectorAll("[data-i18n]"); }
 function remember() {
-  nodes().forEach((el) => {
-    if (!original.has(el)) original.set(el, el.textContent);
-  });
+  nodes().forEach((el) => { if (!original.has(el)) original.set(el, el.textContent); });
   document.querySelectorAll("[data-i18n-ph]").forEach((el) => {
     if (!original.has(el)) original.set(el, el.getAttribute("placeholder") || "");
   });
 }
-
 function apply(lang) {
   remember();
   document.documentElement.lang = lang;
   nodes().forEach((el) => {
     const key = el.getAttribute("data-i18n");
-    el.textContent = lang === "en" && en[key] ? en[key] : original.get(el);
+    const next = lang === "en" && en[key] != null ? en[key] : original.get(el);
+    if (next != null) el.textContent = next;
   });
   document.querySelectorAll("[data-i18n-ph]").forEach((el) => {
     const key = el.getAttribute("data-i18n-ph");
@@ -254,21 +264,15 @@ function apply(lang) {
   document.querySelectorAll("[data-lang]").forEach((btn) => {
     btn.setAttribute("aria-pressed", btn.getAttribute("data-lang") === lang ? "true" : "false");
   });
+  const menuBtn = document.querySelector("[data-menu]");
+  if (menuBtn) menuBtn.setAttribute("aria-label", lang === "en" ? en["nav.open"] : "Menü öffnen");
   localStorage.setItem("hitekki-lang", lang);
   syncFilm(lang);
-}
-
-function setFaq(open) {
-  document.querySelectorAll("#faq-list details").forEach((d) => {
-    d.open = open;
-  });
-  const btn = document.querySelector("[data-faq-toggle]");
-  if (!btn) return;
-  const lang = localStorage.getItem("hitekki-lang") || "de";
-  btn.textContent = open
-    ? lang === "en" ? en["faq.close"] : "Alle schliessen"
-    : lang === "en" ? en["faq.open"] : "Alle öffnen";
-  btn.dataset.open = open ? "1" : "0";
+  const faqAll = document.querySelector("[data-faq-toggle]");
+  if (faqAll) {
+    const open = faqAll.dataset.open === "1";
+    faqAll.textContent = open ? (lang === "en" ? en["faq.close"] : "Alle schliessen") : (lang === "en" ? en["faq.open"] : "Alle öffnen");
+  }
 }
 
 document.querySelectorAll("[data-lang]").forEach((btn) => {
@@ -281,6 +285,9 @@ if (menuBtn && mobile) {
   menuBtn.addEventListener("click", () => {
     const open = mobile.classList.toggle("open");
     menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    menuBtn.setAttribute("aria-label", open
+      ? (document.documentElement.lang === "en" ? en["nav.close"] : "Menü schliessen")
+      : (document.documentElement.lang === "en" ? en["nav.open"] : "Menü öffnen"));
   });
   mobile.querySelectorAll("a").forEach((a) => {
     a.addEventListener("click", () => {
@@ -290,96 +297,133 @@ if (menuBtn && mobile) {
   });
 }
 
+document.querySelectorAll("[data-filter]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const family = btn.getAttribute("data-filter");
+    document.querySelectorAll("[data-filter]").forEach((b) => {
+      b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+    });
+    document.querySelectorAll("[data-family]").forEach((card) => {
+      card.classList.toggle("is-hidden", family !== "all" && card.getAttribute("data-family") !== family);
+    });
+  });
+});
+
 const film = document.getElementById("erklaerfilm");
-const jumps = Array.from(document.querySelectorAll("[data-jump]"));
 const CHAPTERS = {
   de: [0, 2, 10, 16, 27, 33, 41, 45, 53, 57],
   en: [0, 2, 9, 17, 28, 32, 39, 43, 50, 54]
 };
-
 function clock(seconds) {
   const whole = Math.max(0, Math.round(seconds));
   return Math.floor(whole / 60) + ":" + String(whole % 60).padStart(2, "0");
 }
-
 function chapterIndex(time, times) {
   let index = 0;
-  times.forEach((mark, i) => {
-    if (time + 0.15 >= mark) index = i;
-  });
+  times.forEach((mark, i) => { if (time + 0.15 >= mark) index = i; });
   return index;
 }
-
+function jumps() { return Array.from(document.querySelectorAll("[data-jump]")); }
+function markChapter(time) {
+  const lang = localStorage.getItem("hitekki-lang") || "de";
+  const times = CHAPTERS[lang] || CHAPTERS.de;
+  const index = chapterIndex(time, times);
+  jumps().forEach((btn, i) => btn.setAttribute("aria-current", i === index ? "true" : "false"));
+}
+function go(seconds) {
+  if (!film) return;
+  const play = () => {
+    const duration = Number.isFinite(film.duration) ? film.duration : seconds + 1;
+    film.currentTime = Math.max(0, Math.min(seconds, Math.max(duration - 0.05, 0)));
+    film.play().catch(() => {});
+  };
+  if (film.readyState >= 1) play();
+  else {
+    film.addEventListener("loadedmetadata", play, { once: true });
+    film.load();
+  }
+}
 function syncFilm(lang) {
-  if (!film || !jumps.length) return;
+  if (!film) return;
+  const list = jumps();
+  if (!list.length) return;
   const nextTimes = CHAPTERS[lang] || CHAPTERS.de;
-  const prevTimes = jumps.map((btn) => Number(btn.getAttribute("data-jump")));
+  const prevTimes = list.map((btn) => Number(btn.getAttribute("data-jump")));
   const index = chapterIndex(film.currentTime || 0, prevTimes);
   const wasPlaying = !film.paused && !film.ended && film.currentTime > 0.2;
-  jumps.forEach((btn, i) => {
+  list.forEach((btn, i) => {
     const mark = nextTimes[i];
     if (mark == null) return;
     btn.setAttribute("data-jump", String(mark));
     const label = btn.querySelector(".ch-time");
     if (label) label.textContent = clock(mark);
   });
-  const file = (lang === "en" ? "erklaerfilm-en.mp4" : "erklaerfilm-de.mp4") + "?v=9";
+  const file = (lang === "en" ? "/erklaerfilm-en.mp4" : "/erklaerfilm-de.mp4") + "?v=9";
   const source = film.querySelector("source");
   if (!source || source.getAttribute("src") === file) {
     markChapter(film.currentTime || 0);
     return;
   }
   source.setAttribute("src", file);
-  film.load();
-  if (!wasPlaying) return;
   film.addEventListener("loadedmetadata", () => {
-    const mark = nextTimes[index] || 0;
-    const duration = Number.isFinite(film.duration) ? film.duration : mark + 1;
-    film.currentTime = Math.max(0, Math.min(mark, Math.max(duration - 0.05, 0)));
-    const play = film.play();
-    if (play && typeof play.catch === "function") play.catch(() => {});
+    const seekTo = nextTimes[index] || 0;
+    try { film.currentTime = seekTo; } catch (e) {}
+    markChapter(seekTo);
+    if (wasPlaying) film.play().catch(() => {});
   }, { once: true });
+  film.load();
 }
-
-function markChapter(time) {
-  let current = jumps[0];
-  jumps.forEach((btn) => {
-    if (time + 0.15 >= Number(btn.getAttribute("data-jump"))) current = btn;
-  });
-  jumps.forEach((btn) => {
-    if (btn === current) btn.setAttribute("aria-current", "true");
-    else btn.removeAttribute("aria-current");
-  });
-}
-
-function jumpTo(seconds) {
-  if (!film) return;
-  const go = () => {
-    const duration = Number.isFinite(film.duration) ? film.duration : seconds + 1;
-    film.currentTime = Math.max(0, Math.min(seconds, Math.max(duration - 0.05, 0)));
-    markChapter(seconds);
-    const play = film.play();
-    if (play && typeof play.catch === "function") play.catch(() => {});
-  };
-  if (film.readyState >= 1) go();
-  else {
-    film.addEventListener("loadedmetadata", go, { once: true });
-    film.load();
-  }
-}
-
-jumps.forEach((btn) => {
-  btn.addEventListener("click", () => jumpTo(Number(btn.getAttribute("data-jump"))));
-});
-
 if (film) {
   film.addEventListener("timeupdate", () => markChapter(film.currentTime || 0));
-  film.addEventListener("seeked", () => markChapter(film.currentTime || 0));
+  jumps().forEach((btn) => btn.addEventListener("click", () => go(Number(btn.getAttribute("data-jump")))));
 }
 
-const faqBtn = document.querySelector("[data-faq-toggle]");
-if (faqBtn) {
-  faqBtn.addEventListener("click", () => setFaq(faqBtn.dataset.open !== "1"));
+const faqRoot = document.querySelector("[data-faq-root]");
+const faqItems = document.getElementById("faq-items");
+if (faqRoot && faqItems) {
+  faqRoot.addEventListener("click", () => {
+    const open = faqRoot.getAttribute("aria-expanded") === "true";
+    faqRoot.setAttribute("aria-expanded", open ? "false" : "true");
+    faqItems.hidden = open;
+    const plus = faqRoot.querySelector(".plus");
+    if (plus) plus.classList.toggle("on", !open);
+    if (open) {
+      faqItems.querySelectorAll(".answer").forEach((p) => { p.hidden = true; });
+      faqItems.querySelectorAll(".q").forEach((b) => {
+        b.setAttribute("aria-expanded", "false");
+        const mark = b.querySelector(".plus");
+        if (mark) mark.classList.remove("on");
+      });
+      const all = document.querySelector("[data-faq-toggle]");
+      if (all) all.dataset.open = "0";
+    }
+  });
+}
+document.querySelectorAll(".q").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const answer = btn.parentElement.querySelector(".answer");
+    const open = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", open ? "false" : "true");
+    if (answer) answer.hidden = open;
+    const plus = btn.querySelector(".plus");
+    if (plus) plus.classList.toggle("on", !open);
+  });
+});
+const faqAll = document.querySelector("[data-faq-toggle]");
+if (faqAll) {
+  faqAll.dataset.open = "0";
+  faqAll.addEventListener("click", () => {
+    const open = faqAll.dataset.open !== "1";
+    faqAll.dataset.open = open ? "1" : "0";
+    document.querySelectorAll(".q").forEach((btn) => {
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      const plus = btn.querySelector(".plus");
+      if (plus) plus.classList.toggle("on", open);
+    });
+    document.querySelectorAll(".answer").forEach((p) => { p.hidden = !open; });
+    const lang = localStorage.getItem("hitekki-lang") || "de";
+    faqAll.textContent = open ? (lang === "en" ? en["faq.close"] : "Alle schliessen") : (lang === "en" ? en["faq.open"] : "Alle öffnen");
+  });
 }
 
 const form = document.querySelector("[data-form]");
@@ -409,40 +453,31 @@ if (form) {
     const thanks = document.querySelector("[data-thanks]");
     if (honey) {
       form.classList.add("hide");
-      if (thanks) thanks.classList.add("show");
+      if (thanks) thanks.classList.remove("hide");
       return;
     }
     const button = form.querySelector("button[type=submit]");
-    let errorEl = form.querySelector("[data-form-error]");
-    if (!errorEl) {
-      errorEl = document.createElement("p");
-      errorEl.className = "error";
-      errorEl.setAttribute("data-form-error", "");
-      button.insertAdjacentElement("afterend", errorEl);
-    }
-    const sendError = lang === "en"
-      ? en["form.sendError"]
-      : "Die Anfrage konnte nicht gesendet werden. Bitte noch einmal versuchen oder direkt an kontakt@hitekki.ch schreiben.";
-    errorEl.textContent = "";
+    const errorEl = form.querySelector("[data-form-error]");
+    const sendError = lang === "en" ? en["form.sendError"] : "Die Anfrage konnte nicht gesendet werden. Bitte noch einmal versuchen oder direkt an kontakt@hitekki.ch schreiben.";
+    if (errorEl) errorEl.textContent = "";
     if (button) {
       button.disabled = true;
       button.textContent = lang === "en" ? en["form.sending"] : "Wird gesendet…";
     }
+    const resetBtn = () => {
+      if (!button) return;
+      button.disabled = false;
+      button.textContent = lang === "en" ? en["form.submit"] : "Anfrage senden";
+    };
     fetch("/api/anfrage", {
       method: "POST",
       headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify({
-        name: values.name,
-        company: values.company,
-        email: values.email,
-        phone: values.phone,
-        message: values.message
-      })
+      body: JSON.stringify(values)
     }).then((response) => response.json().then((result) => ({ ok: response.ok, result })).catch(() => ({ ok: false, result: {} })))
       .then(({ ok, result }) => {
         if (!ok || !result.ok) throw new Error("send");
         form.classList.add("hide");
-        if (thanks) thanks.classList.add("show");
+        if (thanks) thanks.classList.remove("hide");
       })
       .catch(() => {
         let frame = document.querySelector("iframe[name=hitekki-send]");
@@ -482,11 +517,8 @@ if (form) {
           if (settled) return;
           settled = true;
           outbound.remove();
-          errorEl.textContent = sendError;
-          if (button) {
-            button.disabled = false;
-            button.textContent = lang === "en" ? en["form.submit"] : "Anfrage senden";
-          }
+          if (errorEl) errorEl.textContent = sendError;
+          resetBtn();
         }, 12000);
         frame.onload = () => {
           if (settled) return;
@@ -494,7 +526,7 @@ if (form) {
           window.clearTimeout(timer);
           outbound.remove();
           form.classList.add("hide");
-          if (thanks) thanks.classList.add("show");
+          if (thanks) thanks.classList.remove("hide");
         };
         outbound.submit();
       });
