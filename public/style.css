@@ -333,19 +333,21 @@ input:focus, textarea:focus { outline: 2px solid rgba(0, 102, 204, 0.25); border
 .foot { border-top: 1px solid var(--line); }
 .foot-inner {
   display: grid;
-  gap: 2.5rem;
-  padding: 3rem 0;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem 2rem;
+  padding: 1.25rem 0 1rem;
 }
 .foot p, .foot a { color: var(--muted); font-size: 0.75rem; text-decoration: none; }
 .foot a:hover { color: var(--link); text-decoration: underline; }
-.foot h2 { font-size: 0.75rem; font-weight: 500; margin-bottom: 0.75rem; }
-.foot .col { display: grid; gap: 0.55rem; align-content: start; }
+.foot h2 { font-size: 0.75rem; font-weight: 500; margin-bottom: 0.4rem; }
+.foot .col { display: grid; gap: 0.3rem; align-content: start; }
+.foot .col:last-child { text-align: right; }
 .legal-line {
   border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: 0.75rem;
 }
-.legal-line .bar-inner, .legal-line .foot-inner { display: flex; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; padding: 1rem 0; width: min(74rem, calc(100% - 1.5rem)); }
+.legal-line .bar-inner, .legal-line .foot-inner { display: flex; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; padding: .7rem 0; width: min(74rem, calc(100% - 1.5rem)); }
 
 .legal { padding: 1.5rem 0 2.5rem; }
 .sheet { background: var(--cream); border-radius: 1.5rem; padding: 2.5rem 1.5rem; }
@@ -381,7 +383,7 @@ input:focus, textarea:focus { outline: 2px solid rgba(0, 102, 204, 0.25); border
   .card h3 { font-size: 2.25rem; }
   .reason { padding: 2.5rem 2.5rem; }
   .split { grid-template-columns: 1fr 2fr; gap: 2.5rem; }
-  .foot-inner { grid-template-columns: 1.4fr 1fr 1fr; padding: 3.5rem 0; }
+  .foot-inner { grid-template-columns: 1fr 1fr; padding: 1.35rem 0 1rem; }
   .sheet { padding: 3.5rem 3rem; }
 }
 @media (min-width: 1024px) {
