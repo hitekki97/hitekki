@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/style.css?v=15" />
+  <link rel="stylesheet" href="/style.css?v=16" />
 </head>
 <body>
   <a class="skip" href="#inhalt" data-i18n="skip">Zum Inhalt</a>
@@ -26,7 +26,8 @@
         <a href="#film" data-i18n="film.kicker">Film</a>
         <a href="#ablauf" data-i18n="nav.process">Ablauf</a>
         <a href="#fragen" data-i18n="nav.questions">Fragen</a>
-      </nav>
+        <a href="#webseite" data-i18n="nav.web">Direkt zur Webseiten Anfrage</a>
+        </nav>
       <div class="tools">
         <div class="langs" role="group" aria-label="Sprache">
           <button type="button" data-lang="de" aria-pressed="true">DE</button>
@@ -46,6 +47,7 @@
       <a href="#film" data-i18n="film.kicker">Film</a>
       <a href="#ablauf" data-i18n="nav.process">Ablauf</a>
       <a href="#fragen" data-i18n="nav.questions">Fragen</a>
+      <a href="#webseite" data-i18n="nav.web">Direkt zur Webseiten Anfrage</a>
       <a class="cta" href="#kontakt" data-i18n="nav.cta">Gespräch vereinbaren</a>
     </div>
   </div>
@@ -91,11 +93,11 @@
         <p class="sub" data-i18n="c.x">CRM-Bestand, Messekontakte, offene Offerten. Nachfassen statt liegen lassen.</p>
         <span class="more"><span data-i18n="shop.see">Ansehen</span><svg viewBox="0 0 20 20"><path d="M7 4l6 6-6 6"/></svg></span>
       </a>
-      <a class="poster" data-family="build" href="#technik">
+      <a class="poster" data-family="build" href="#webseite">
         <p class="kicker" data-i18n="p2.t">Technik</p>
         <h2 data-i18n="shop.webTitle">Seiten und Landing Pages</h2>
         <p class="sub" data-i18n="shop.webText">Websites und Landing Pages, die Anfragen oder Abschlüsse tragen. Kein Design um des Designs willen.</p>
-        <span class="more"><span data-i18n="shop.see">Ansehen</span><svg viewBox="0 0 20 20"><path d="M7 4l6 6-6 6"/></svg></span>
+        <span class="more"><span data-i18n="nav.web">Direkt zur Webseiten Anfrage</span><svg viewBox="0 0 20 20"><path d="M7 4l6 6-6 6"/></svg></span>
       </a>
       <a class="poster" data-family="build" href="#film">
         <p class="kicker" data-i18n="p2.t">Technik</p>
@@ -276,6 +278,45 @@
         </div>
       </section>
 
+
+      <section id="webseite" class="tile span-2">
+        <p class="kicker">Technik</p>
+        <h2 data-i18n="web.title">Webseiten-Anfrage</h2>
+        <p class="intro" data-i18n="web.lead">Willkommen zum Webseiten-Fragebogen. Beantworten Sie hier einige Fragen, um individuell auf Ihre Bedürfnisse eingehen zu können. Ausfüllen ist kostenlos. Abschicken kostet CHF 50 und ist noch nicht freigeschaltet.</p>
+        <form id="webform">
+          <label>Firma <input name="firma" autocomplete="organization" placeholder="Firma"></label>
+          <label>Ihr Name <input name="name" autocomplete="name" placeholder="Name"></label>
+          <label>E-Mail <input name="email" type="email" autocomplete="email" placeholder="name@firma.ch"></label>
+          <label>Telefon <input name="telefon" type="tel" autocomplete="tel" placeholder="+41, freiwillig"></label>
+          <label>Was tun Sie, und für wen <textarea name="tun" placeholder="Was Sie anbieten, und wer das braucht"></textarea></label>
+          <label>Bestehende Webseite
+            <select name="website">
+              <option>Nein</option>
+              <option>Ja</option>
+              <option>Nur Profil oder PDF</option>
+            </select>
+          </label>
+          <label>Link, falls vorhanden <input name="weblink" placeholder="https://"></label>
+          <label>Domain
+            <select name="domain">
+              <option>Weiss ich nicht</option>
+              <option>Ja, die bleibt</option>
+              <option>Ja, unklar</option>
+              <option>Nein</option>
+            </select>
+          </label>
+          <label>Was die Seite tun soll <input name="job" placeholder="Anfrage, Termin, Angebot, Shop. Mehrere möglich"></label>
+          <label>Wie sie aussehen soll <input name="look" placeholder="Clean, cinematisch, am Produkt, an einem Thema"></label>
+          <label>Was auf keinen Fall vorkommen soll <input name="nie"></label>
+          <label>Bilder oder Dokumente <input type="file" multiple accept="image/*,.pdf,.doc,.docx,.ppt,.pptx,.zip"></label>
+          <p class="pay"><strong data-i18n="web.soon">Bald verfügbar.</strong> <span data-i18n="web.personal">Anfragen bitte vorerst persönlich an kontakt@hitekki.ch.</span></p>
+          <p class="small">Sichtung CHF 50. Persönliche Rückmeldung innert drei Tagen nach Zahlung. Bei einem späteren Auftrag werden die CHF 50 angerechnet. <a href="#web-bedingungen">Bedingungen</a></p>
+        </form>
+        <details id="web-bedingungen">
+          <summary>Bedingungen, Datenschutz, Impressum</summary>
+          <p class="small">HiTekKi Fischer, Einzelunternehmen von Tim Fischer, Bahnhofstrasse 65, 8001 Zürich. Eine UID wurde noch nicht erteilt. Nicht MWST-pflichtig, keine MWST ausgewiesen. Die CHF 50 gelten für die schriftliche Einordnung, nicht für eine Website. Dateien nur für diese Sichtung. kontakt@hitekki.ch</p>
+        </details>
+      </section>
       <section id="kontakt" class="tile span-2">
         <div class="contact">
           <div>
@@ -339,6 +380,6 @@
     </div>
     <div class="legal-line"><div class="foot-inner"><p>© 2026 HiTekKi. Tim Fischer.</p><p>Zürich · Schweiz</p></div></div>
   </footer>
-  <script src="/script.js?v=10"></script>
+  <script src="/script.js?v=11"></script>
 </body>
 </html>
