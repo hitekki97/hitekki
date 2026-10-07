@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="/style.css?v=20" />
 </head>
 <body>
-  <a class="skip" href="#inhalt">Zum Inhalt</a>
+  <a class="skip" href="#inhalt" data-i18n="skip">Zum Inhalt</a>
   <header class="bar">
     <div class="bar-inner">
       <a class="logo" href="/" aria-label="HiTekKi, Startseite">
@@ -21,11 +21,11 @@
         HiTekKi
       </a>
       <nav class="nav" aria-label="Hauptnavigation">
-        <a href="/#leistungen">Leistungen</a>
-        <a href="/#film">Film</a>
-        <a href="/#ablauf">Ablauf</a>
-        <a href="/#fragen">Fragen</a>
-        <a href="/webseite" aria-current="page">Direkt zur Webseiten Anfrage</a>
+        <a href="/#leistungen" data-i18n="nav.services">Leistungen</a>
+        <a href="/#film" data-i18n="film.kicker">Film</a>
+        <a href="/#ablauf" data-i18n="nav.process">Ablauf</a>
+        <a href="/#fragen" data-i18n="nav.questions">Fragen</a>
+        <a href="/webseite" data-i18n="nav.web" aria-current="page">Direkt zur Webseiten Anfrage</a>
       </nav>
       <div class="tools">
         <div class="langs" role="group" aria-label="Sprache">
@@ -33,7 +33,7 @@
           <span aria-hidden="true">/</span>
           <button type="button" data-lang="en" aria-pressed="false">EN</button>
         </div>
-        <a class="cta" href="/#kontakt">Gespräch vereinbaren</a>
+        <a class="cta" href="/#kontakt" data-i18n="nav.cta">Gespräch vereinbaren</a>
         <button class="menu" type="button" data-menu aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü öffnen">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         </button>
@@ -42,12 +42,12 @@
   </header>
   <div id="mobile-nav" class="mobile" data-mobile>
     <div class="bar-inner" style="display:block">
-      <a href="/#leistungen">Leistungen</a>
-      <a href="/#film">Film</a>
-      <a href="/#ablauf">Ablauf</a>
-      <a href="/#fragen">Fragen</a>
-      <a href="/webseite">Direkt zur Webseiten Anfrage</a>
-      <a class="cta" href="/#kontakt">Gespräch vereinbaren</a>
+      <a href="/#leistungen" data-i18n="nav.services">Leistungen</a>
+      <a href="/#film" data-i18n="film.kicker">Film</a>
+      <a href="/#ablauf" data-i18n="nav.process">Ablauf</a>
+      <a href="/#fragen" data-i18n="nav.questions">Fragen</a>
+      <a href="/webseite" data-i18n="nav.web">Direkt zur Webseiten Anfrage</a>
+      <a class="cta" href="/#kontakt" data-i18n="nav.cta">Gespräch vereinbaren</a>
     </div>
   </div>
 
@@ -55,166 +55,166 @@
     <div class="store">
       <section class="hero span-2">
         <p class="kicker">HiTekKi · Zürich</p>
-        <h1>Willkommen zum Webseiten-Fragebogen.</h1>
-        <p class="accent">Beantworten Sie hier einige Fragen, um individuell auf Ihre Bedürfnisse eingehen zu können.</p>
-        <p class="lede">Ausfüllen und abschicken ist kostenlos. Leer lassen ist in Ordnung. An jeder leeren Stelle recherchiere ich selbst und werde passend kreativ. Persönliche Rückmeldung innert drei Tagen.</p>
+        <h1 data-i18n="w.h1">Willkommen zum Webseiten-Fragebogen.</h1>
+        <p class="accent" data-i18n="w.accent">Beantworten Sie hier einige Fragen, um individuell auf Ihre Bedürfnisse eingehen zu können.</p>
+        <p class="lede" data-i18n="w.lede">Ausfüllen und abschicken ist kostenlos. Leer lassen ist in Ordnung. An jeder leeren Stelle recherchiere ich selbst und werde passend kreativ. Persönliche Rückmeldung innert drei Tagen.</p>
       </section>
 
       <section class="tile span-2">
         <div data-thanks class="thanks hide">
-          <h2>Danke für die Anfrage.</h2>
-          <p class="small">Ich lese sie und melde mich innert drei Tagen. Dateien schicken Sie, falls vorhanden, an kontakt@hitekki.ch.</p>
+          <h2 data-i18n="w.thanks">Danke für die Anfrage.</h2>
+          <p class="small" data-i18n="w.thanksBody">Ich lese sie und melde mich innert drei Tagen. Dateien schicken Sie, falls vorhanden, an kontakt@hitekki.ch.</p>
         </div>
         <form id="brief">
           <p class="kicker">01</p>
-          <h2>Wer schreibt.</h2>
-          <p class="sub">Das Angebot richtet sich an Unternehmen.</p>
+          <h2 data-i18n="w.who">Wer schreibt.</h2>
+          <p class="sub" data-i18n="w.whoSub">Das Angebot richtet sich an Unternehmen.</p>
           <div class="ask-grid">
-            <label>Firma <input name="firma" autocomplete="organization" placeholder="Firma"></label>
-            <label>Ihr Name <input name="name" autocomplete="name" placeholder="Name"></label>
+            <label><span data-i18n="w.company">Firma</span> <input name="firma" autocomplete="organization" data-i18n-ph="w.phCompany" placeholder="Firma"></label>
+            <label><span data-i18n="w.name">Ihr Name</span> <input name="name" autocomplete="name" data-i18n-ph="w.phName" placeholder="Name"></label>
           </div>
-          <label>E-Mail <input name="email" type="email" autocomplete="email" placeholder="name@firma.ch"></label>
-          <label>Telefon <input name="telefon" type="tel" autocomplete="tel" placeholder="+41, freiwillig"></label>
+          <label><span data-i18n="w.email">E-Mail</span> <input name="email" type="email" autocomplete="email" placeholder="name@firma.ch"></label>
+          <label><span data-i18n="w.phone">Telefon</span> <input name="telefon" type="tel" autocomplete="tel" data-i18n-ph="w.phPhone" placeholder="+41, freiwillig"></label>
 
           <div class="ask-block">
             <p class="kicker">02</p>
-            <h2>Was tun Sie, und für wen.</h2>
-            <label>In eigenen Worten <textarea name="tun" placeholder="Was Sie anbieten, und wer das braucht"></textarea></label>
+            <h2 data-i18n="w.do">Was tun Sie, und für wen.</h2>
+            <label><span data-i18n="w.words">In eigenen Worten</span> <textarea name="tun" data-i18n-ph="w.phDo" placeholder="Was Sie anbieten, und wer das braucht"></textarea></label>
           </div>
 
           <div class="ask-block">
             <p class="kicker">03</p>
-            <h2>Gibt es schon eine Webseite.</h2>
+            <h2 data-i18n="w.site">Gibt es schon eine Webseite.</h2>
             <div class="pills" id="hasweb">
-              <button type="button" data-web="Ja">Ja</button>
-              <button type="button" data-web="Nein">Nein</button>
-              <button type="button" data-web="Nur Profil oder PDF">Nur Profil oder PDF</button>
+              <button type="button" data-web="Ja"><span data-i18n="w.yes">Ja</span></button>
+              <button type="button" data-web="Nein"><span data-i18n="w.no">Nein</span></button>
+              <button type="button" data-web="Nur Profil oder PDF"><span data-i18n="w.profile">Nur Profil oder PDF</span></button>
             </div>
-            <div class="if-web" id="linkrow"><label>Link <input name="website" placeholder="https://"></label></div>
-            <div class="if-yes" id="stayrow"><label>Was soll bleiben, und was soll weg <textarea name="bleiben" placeholder="Farben, Name, ein Foto. Und was sich veraltet anfühlt"></textarea></label></div>
+            <div class="if-web" id="linkrow"><label><span data-i18n="w.link">Link</span> <input name="website" placeholder="https://"></label></div>
+            <div class="if-yes" id="stayrow"><label><span data-i18n="w.keep">Was soll bleiben, und was soll weg</span> <textarea name="bleiben" data-i18n-ph="w.phKeep" placeholder="Farben, Name, ein Foto. Und was sich veraltet anfühlt"></textarea></label></div>
           </div>
 
           <div class="ask-block">
             <p class="kicker">04</p>
-            <h2>Gibt es schon eine Domain.</h2>
-            <p class="sub">Die Adresse, zum Beispiel firma.ch. Das ist nicht dasselbe wie die Seite darauf.</p>
+            <h2 data-i18n="w.domain">Gibt es schon eine Domain.</h2>
+            <p class="sub" data-i18n="w.domainSub">Die Adresse, zum Beispiel firma.ch. Das ist nicht dasselbe wie die Seite darauf.</p>
             <div class="pills" id="hasdomain">
-              <button type="button" data-domain="Ja, die bleibt">Ja, die bleibt</button>
-              <button type="button" data-domain="Ja, unklar">Ja, unklar</button>
-              <button type="button" data-domain="Nein">Nein</button>
-              <button type="button" data-domain="Weiss ich nicht">Weiss ich nicht</button>
+              <button type="button" data-domain="Ja, die bleibt"><span data-i18n="w.domainStay">Ja, die bleibt</span></button>
+              <button type="button" data-domain="Ja, unklar"><span data-i18n="w.domainUnclear">Ja, unklar</span></button>
+              <button type="button" data-domain="Nein"><span data-i18n="w.no">Nein</span></button>
+              <button type="button" data-domain="Weiss ich nicht"><span data-i18n="w.dontKnow">Weiss ich nicht</span></button>
             </div>
             <div class="if-domain" id="domainrow">
-              <label>Welche <input name="domain" placeholder="firma.ch"></label>
-              <label>Wo liegt sie <input name="registrar" placeholder="Hostpoint, Infomaniak, Cyon"></label>
+              <label><span data-i18n="w.which">Welche</span> <input name="domain" placeholder="firma.ch"></label>
+              <label><span data-i18n="w.where">Wo liegt sie</span> <input name="registrar" placeholder="Hostpoint, Infomaniak, Cyon"></label>
             </div>
-            <p class="small">Eine bestehende Domain kann bleiben. Dafür brauche ich Zugang beim Anbieter, oder Sie stellen die Verbindung selbst um. Sie muss nicht übertragen werden.</p>
+            <p class="small" data-i18n="w.domainNote">Eine bestehende Domain kann bleiben. Dafür brauche ich Zugang beim Anbieter, oder Sie stellen die Verbindung selbst um. Sie muss nicht übertragen werden.</p>
           </div>
 
           <div class="ask-block">
             <p class="kicker">05</p>
-            <h2>Was soll die neue Seite tun.</h2>
-            <p class="sub">Mehrere möglich.</p>
+            <h2 data-i18n="w.job">Was soll die neue Seite tun.</h2>
+            <p class="sub" data-i18n="w.multi">Mehrere möglich.</p>
             <div class="choices" id="job">
-              <button type="button" class="choice" data-job="Anfrage"><strong>Anfrage holen</strong><span>Jemand soll sich melden.</span></button>
-              <button type="button" class="choice" data-job="Termin"><strong>Termin ermöglichen</strong><span>Ein Gespräch, kein langes Formular.</span></button>
-              <button type="button" class="choice" data-job="Angebot zeigen"><strong>Ein Angebot zeigen</strong><span>Leistung oder Produkt verständlich machen.</span></button>
-              <button type="button" class="choice" data-job="Erklärung"><strong>Vor dem Gespräch erklären</strong><span>Damit der Anruf kürzer wird.</span></button>
-              <button type="button" class="choice" data-job="Shop"><strong>Shop mit direkter Bezahlung</strong><span>Bestellen und gleich bezahlen, nicht nur anfragen.</span></button>
+              <button type="button" class="choice" data-job="Anfrage"><strong data-i18n="w.jobLead">Anfrage holen</strong><span data-i18n="w.jobLeadX">Jemand soll sich melden.</span></button>
+              <button type="button" class="choice" data-job="Termin"><strong data-i18n="w.jobMeet">Termin ermöglichen</strong><span data-i18n="w.jobMeetX">Ein Gespräch, kein langes Formular.</span></button>
+              <button type="button" class="choice" data-job="Angebot zeigen"><strong data-i18n="w.jobShow">Ein Angebot zeigen</strong><span data-i18n="w.jobShowX">Leistung oder Produkt verständlich machen.</span></button>
+              <button type="button" class="choice" data-job="Erklärung"><strong data-i18n="w.jobExplain">Vor dem Gespräch erklären</strong><span data-i18n="w.jobExplainX">Damit der Anruf kürzer wird.</span></button>
+              <button type="button" class="choice" data-job="Shop"><strong data-i18n="w.jobShop">Shop mit direkter Bezahlung</strong><span data-i18n="w.jobShopX">Bestellen und gleich bezahlen, nicht nur anfragen.</span></button>
             </div>
             <section class="if-shop" id="shoprow">
-              <label>Was wird verkauft <input name="shopware" placeholder="Produkte, Termine, Gutscheine"></label>
-              <p class="sub">Welche Bezahlung soll direkt möglich sein. Mehrere möglich.</p>
+              <label><span data-i18n="w.sold">Was wird verkauft</span> <input name="shopware" data-i18n-ph="w.phSold" placeholder="Produkte, Termine, Gutscheine"></label>
+              <p class="sub" data-i18n="w.pay">Welche Bezahlung soll direkt möglich sein. Mehrere möglich.</p>
               <div class="pills" id="pay">
                 <button type="button" data-pay="TWINT">TWINT</button>
-                <button type="button" data-pay="Karte">Karte</button>
+                <button type="button" data-pay="Karte"><span data-i18n="w.card">Karte</span></button>
                 <button type="button" data-pay="Apple Pay oder Google Pay">Apple Pay oder Google Pay</button>
                 <button type="button" data-pay="PayPal">PayPal</button>
-                <button type="button" data-pay="Rechnung">Rechnung</button>
-                <button type="button" data-pay="Überweisung">Überweisung</button>
-                <button type="button" data-pay="Offen">Offen, HiTekKi schlägt vor</button>
+                <button type="button" data-pay="Rechnung"><span data-i18n="w.invoice">Rechnung</span></button>
+                <button type="button" data-pay="Überweisung"><span data-i18n="w.transfer">Überweisung</span></button>
+                <button type="button" data-pay="Offen"><span data-i18n="w.open">Offen, HiTekKi schlägt vor</span></button>
               </div>
             </section>
           </div>
 
           <div class="ask-block">
             <p class="kicker">06</p>
-            <h2>Wie soll sie aussehen.</h2>
-            <p class="sub">Mehrere möglich. Clean, cinematisch, am Produkt, an einem Thema.</p>
+            <h2 data-i18n="w.look">Wie soll sie aussehen.</h2>
+            <p class="sub" data-i18n="w.lookSub">Mehrere möglich. Clean, cinematisch, am Produkt, an einem Thema.</p>
             <div class="choices" id="look">
-              <button type="button" class="choice" data-type="clean"><strong>Clean und strukturiert</strong><span>Wenig Schmuck, schnell lesbar.</span></button>
-              <button type="button" class="choice" data-type="film"><strong>Cinematisch</strong><span>Fläche, Bewegung, Eindruck zuerst.</span></button>
-              <button type="button" class="choice" data-type="produkt"><strong>Am Produkt entlang</strong><span>Das Produkt trägt die Seite.</span></button>
-              <button type="button" class="choice" data-type="thema"><strong>An ein Thema angelehnt</strong><span>Ein Material, ein Ort, ein Handwerk.</span></button>
+              <button type="button" class="choice" data-type="clean"><strong data-i18n="w.clean">Clean und strukturiert</strong><span data-i18n="w.cleanX">Wenig Schmuck, schnell lesbar.</span></button>
+              <button type="button" class="choice" data-type="film"><strong data-i18n="w.film">Cinematisch</strong><span data-i18n="w.filmX">Fläche, Bewegung, Eindruck zuerst.</span></button>
+              <button type="button" class="choice" data-type="produkt"><strong data-i18n="w.product">Am Produkt entlang</strong><span data-i18n="w.productX">Das Produkt trägt die Seite.</span></button>
+              <button type="button" class="choice" data-type="thema"><strong data-i18n="w.theme">An ein Thema angelehnt</strong><span data-i18n="w.themeX">Ein Material, ein Ort, ein Handwerk.</span></button>
             </div>
             <section class="branch" data-for="clean">
-              <label>Wie lang darf sie werden
-                <select name="laenge"><option value="">Offen</option><option>Eine Seite</option><option>Wenige Abschnitte</option><option>Mit Unterseiten</option></select>
+              <label><span data-i18n="w.length">Wie lang darf sie werden</span>
+                <select name="laenge"><option value="" data-i18n="w.openOpt">Offen</option><option value="Eine Seite" data-i18n="w.onePage">Eine Seite</option><option value="Wenige Abschnitte" data-i18n="w.few">Wenige Abschnitte</option><option value="Mit Unterseiten" data-i18n="w.subpages">Mit Unterseiten</option></select>
               </label>
             </section>
             <section class="branch" data-for="film">
-              <label>Stimmung in drei Wörtern <input name="stimmung" placeholder="ruhig, weit, präzise"></label>
-              <label>Haben Sie schon Film oder Fotos
-                <select name="medien"><option value="">Noch nichts</option><option>Fotos</option><option>Film</option><option>Beides</option></select>
+              <label><span data-i18n="w.mood">Stimmung in drei Wörtern</span> <input name="stimmung" data-i18n-ph="w.phMood" placeholder="ruhig, weit, präzise"></label>
+              <label><span data-i18n="w.media">Haben Sie schon Film oder Fotos</span>
+                <select name="medien"><option value="" data-i18n="w.nothing">Noch nichts</option><option value="Fotos" data-i18n="w.photos">Fotos</option><option value="Film" data-i18n="w.filmOpt">Film</option><option value="Beides" data-i18n="w.both">Beides</option></select>
               </label>
             </section>
             <section class="branch" data-for="produkt">
-              <label>Welches Produkt oder welche Linie <input name="produkt" placeholder="Name"></label>
-              <label>Preis auf der Seite
-                <select name="preis"><option value="">Offen</option><option>Ja</option><option>Nur auf Anfrage</option></select>
+              <label><span data-i18n="w.whichProduct">Welches Produkt oder welche Linie</span> <input name="produkt" data-i18n-ph="w.phName" placeholder="Name"></label>
+              <label><span data-i18n="w.price">Preis auf der Seite</span>
+                <select name="preis"><option value="" data-i18n="w.openOpt">Offen</option><option value="Ja" data-i18n="w.priceYes">Ja</option><option value="Nur auf Anfrage" data-i18n="w.priceAsk">Nur auf Anfrage</option></select>
               </label>
-              <label>Was daran erklärt werden muss <input name="erklaeren" placeholder="Anwendung, Variante, Unterschied"></label>
+              <label><span data-i18n="w.explain">Was daran erklärt werden muss</span> <input name="erklaeren" data-i18n-ph="w.phExplain" placeholder="Anwendung, Variante, Unterschied"></label>
             </section>
             <section class="branch" data-for="thema">
-              <label>Welches Thema <input name="thema" placeholder="Werkstatt, Alpen, Präzision, ein Material"></label>
-              <label>Warum gerade das <input name="warumthema" placeholder="Ein Satz"></label>
+              <label><span data-i18n="w.whichTheme">Welches Thema</span> <input name="thema" data-i18n-ph="w.phTheme" placeholder="Werkstatt, Alpen, Präzision, ein Material"></label>
+              <label><span data-i18n="w.whyTheme">Warum gerade das</span> <input name="warumthema" data-i18n-ph="w.phWhy" placeholder="Ein Satz"></label>
             </section>
           </div>
 
           <div class="ask-block">
             <p class="kicker">07</p>
-            <h2>Noch zwei Dinge, dann reicht es.</h2>
-            <label>Ein Satz, der stehen muss <input name="satz" placeholder="Sonst leer lassen"></label>
-            <label>Was auf keinen Fall vorkommen soll <input name="nie" placeholder="Ton, Farbe, Behauptung"></label>
-            <label>Sprache
-              <select name="sprache"><option>Deutsch</option><option>Englisch</option><option>Deutsch und Englisch</option></select>
+            <h2 data-i18n="w.two">Noch zwei Dinge, dann reicht es.</h2>
+            <label><span data-i18n="w.sentence">Ein Satz, der stehen muss</span> <input name="satz" data-i18n-ph="w.phSentence" placeholder="Sonst leer lassen"></label>
+            <label><span data-i18n="w.never">Was auf keinen Fall vorkommen soll</span> <input name="nie" data-i18n-ph="w.phNever" placeholder="Ton, Farbe, Behauptung"></label>
+            <label><span data-i18n="w.language">Sprache</span>
+              <select name="sprache"><option value="Deutsch" data-i18n="w.german">Deutsch</option><option value="Englisch" data-i18n="w.english">Englisch</option><option value="Deutsch und Englisch" data-i18n="w.bothLang">Deutsch und Englisch</option></select>
             </label>
-            <label>Texte
-              <select name="texte"><option>HiTekKi schreibt</option><option>Eigene Texte liegen vor</option><option>Gemischt</option></select>
+            <label><span data-i18n="w.copy">Texte</span>
+              <select name="texte"><option value="HiTekKi schreibt" data-i18n="w.copyUs">HiTekKi schreibt</option><option value="Eigene Texte liegen vor" data-i18n="w.copyOwn">Eigene Texte liegen vor</option><option value="Gemischt" data-i18n="w.copyMix">Gemischt</option></select>
             </label>
           </div>
 
           <div class="ask-block">
             <p class="kicker">08</p>
-            <h2>Bilder und Dokumente.</h2>
-            <p class="sub">Als Inspiration oder als Grundlage. Mehrere Dateien möglich.</p>
-            <label>Dateien <input id="files" type="file" multiple accept="image/*,.pdf,.doc,.docx,.ppt,.pptx,.txt,.zip"></label>
+            <h2 data-i18n="w.files">Bilder und Dokumente.</h2>
+            <p class="sub" data-i18n="w.filesSub">Als Inspiration oder als Grundlage. Mehrere Dateien möglich.</p>
+            <label><span data-i18n="w.file">Dateien</span> <input id="files" type="file" multiple accept="image/*,.pdf,.doc,.docx,.ppt,.pptx,.txt,.zip"></label>
             <ul class="plain" id="filelist" hidden></ul>
           </div>
 
-          <p class="small">Dateien bleiben in dieser Anfrage bei Ihnen. Schicken Sie Logo oder Fotos danach an kontakt@hitekki.ch, Betreff Ihre Firma.</p>
-          <button class="submit" type="submit">Anfrage senden</button>
+          <p class="small" data-i18n="w.fileNote">Dateien bleiben in dieser Anfrage bei Ihnen. Schicken Sie Logo oder Fotos danach an kontakt@hitekki.ch, Betreff Ihre Firma.</p>
+          <button class="submit" type="submit" data-i18n="form.submit">Anfrage senden</button>
           <p class="error" data-form-error></p>
-          <p class="fine">Kostenlos. Die Anfrage geht direkt an mich. Keine Bezahlung, keine Anzahlung.</p>
+          <p class="fine" data-i18n="w.free">Kostenlos. Die Anfrage geht direkt an mich. Keine Bezahlung, keine Anzahlung.</p>
         </form>
       </section>
 
       <section class="tile span-2">
         <details>
-          <summary>Bedingungen</summary>
-          <p class="small">HiTekKi Fischer, Einzelunternehmen von Tim Fischer, Bahnhofstrasse 65, 8001 Zürich. Eine UID wurde noch nicht erteilt. Der Fragebogen ist eine kostenlose Anfrage, keine Offerte und kein Auftrag. Eine persönliche Rückmeldung erfolgt innert drei Tagen.</p>
+          <summary data-i18n="w.terms">Bedingungen</summary>
+          <p class="small" data-i18n="w.termsBody">HiTekKi Fischer, Einzelunternehmen von Tim Fischer, Bahnhofstrasse 65, 8001 Zürich. Eine UID wurde noch nicht erteilt. Der Fragebogen ist eine kostenlose Anfrage, keine Offerte und kein Auftrag. Eine persönliche Rückmeldung erfolgt innert drei Tagen.</p>
         </details>
       </section>
       <section class="tile span-2">
         <details>
-          <summary>Datenschutz</summary>
-          <p class="small">Verantwortlich ist Tim Fischer, HiTekKi Fischer, Bahnhofstrasse 65, 8001 Zürich, kontakt@hitekki.ch. Erfasst werden Firma, Name, E-Mail, freiwillige Telefonnummer und Ihre Antworten. Nur für die Anfrage, nicht für Werbung. Eine Bezahlung gibt es hier nicht.</p>
+          <summary data-i18n="w.privacy">Datenschutz</summary>
+          <p class="small" data-i18n="w.privacyBody">Verantwortlich ist Tim Fischer, HiTekKi Fischer, Bahnhofstrasse 65, 8001 Zürich, kontakt@hitekki.ch. Erfasst werden Firma, Name, E-Mail, freiwillige Telefonnummer und Ihre Antworten. Nur für die Anfrage, nicht für Werbung. Eine Bezahlung gibt es hier nicht.</p>
         </details>
       </section>
       <section class="tile span-2">
         <details>
-          <summary>Impressum</summary>
-          <p class="small">HiTekKi Fischer, Tim Fischer, Einzelunternehmen, Bahnhofstrasse 65, 8001 Zürich, Schweiz. E-Mail kontakt@hitekki.ch. Eine UID-Nummer wurde noch nicht erteilt.</p>
+          <summary data-i18n="w.imprint">Impressum</summary>
+          <p class="small" data-i18n="w.imprintBody">HiTekKi Fischer, Tim Fischer, Einzelunternehmen, Bahnhofstrasse 65, 8001 Zürich, Schweiz. E-Mail kontakt@hitekki.ch. Eine UID-Nummer wurde noch nicht erteilt.</p>
         </details>
       </section>
     </div>
@@ -222,22 +222,24 @@
   <footer class="foot">
     <div class="foot-inner">
       <div class="col">
-        <h2>Seite</h2>
-        <a href="/#leistungen">Leistungen</a>
-        <a href="/webseite">Webseiten Anfrage</a>
+        <h2 data-i18n="foot.page">Seite</h2>
+        <a href="/#leistungen" data-i18n="nav.services">Leistungen</a>
+        <a href="/webseite" data-i18n="nav.web">Webseiten Anfrage</a>
       </div>
       <div class="col">
-        <h2>Kontakt</h2>
+        <h2 data-i18n="foot.contact">Kontakt</h2>
         <a href="mailto:kontakt@hitekki.ch">kontakt@hitekki.ch</a>
         <p>Bahnhofstrasse 65, 8001 Zürich</p>
-        <a href="/impressum">Impressum</a>
-        <a href="/datenschutz">Datenschutz</a>
+        <a href="/impressum" data-i18n="foot.imprint">Impressum</a>
+        <a href="/datenschutz" data-i18n="foot.privacy">Datenschutz</a>
       </div>
     </div>
   </footer>
-  <script src="/script.js?v=11"></script>
+  <script src="/script.js?v=14"></script>
   <script>
     let web = "", domain = "", jobs = [], types = [];
+    const lookDe = { clean: "Clean und strukturiert", film: "Cinematisch", produkt: "Am Produkt entlang", thema: "An ein Thema angelehnt" };
+    function ui(de, en) { return document.documentElement.lang === "en" ? en : de; }
     document.querySelectorAll("#hasweb button").forEach((btn) => btn.addEventListener("click", () => {
       web = btn.getAttribute("data-web");
       document.querySelectorAll("#hasweb button").forEach((b) => b.setAttribute("aria-pressed", b === btn ? "true" : "false"));
@@ -278,20 +280,20 @@
       const val = (name) => (form.elements[name] && form.elements[name].value || "").trim();
       const errorEl = form.querySelector("[data-form-error]");
       if (val("name").length < 2 || val("firma").length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val("email"))) {
-        errorEl.textContent = "Firma, Name und eine gültige E-Mail brauche ich, sonst kann ich nicht antworten.";
+        errorEl.textContent = ui("Firma, Name und eine gültige E-Mail brauche ich, sonst kann ich nicht antworten.", "I need the company, your name and a valid email, otherwise I cannot reply.");
         return;
       }
-      const selected = (sel) => [...document.querySelectorAll(sel + '[aria-pressed="true"]')].map((el) => el.innerText.replace(/\n/g, " — "));
+      const pays = [...document.querySelectorAll('#pay button[aria-pressed="true"]')].map((el) => el.getAttribute("data-pay"));
       const message = [
         "Webseiten-Fragebogen",
         "Was sie tun: " + (val("tun") || "leer"),
         "Webseite: " + (web || "leer") + (val("website") ? " " + val("website") : ""),
         "Bleiben und weg: " + (val("bleiben") || "leer"),
         "Domain: " + (domain || "leer") + (val("domain") ? " " + val("domain") : "") + (val("registrar") ? " bei " + val("registrar") : ""),
-        "Aufgabe: " + (selected("#job .choice").join("; ") || "leer"),
+        "Aufgabe: " + (jobs.join("; ") || "leer"),
         "Shop: " + (val("shopware") || "leer"),
-        "Bezahlung im Shop: " + (selected("#pay button").join(", ") || "leer"),
-        "Erscheinung: " + (selected("#look .choice").join("; ") || "leer"),
+        "Bezahlung im Shop: " + (pays.join(", ") || "leer"),
+        "Erscheinung: " + (types.map((item) => lookDe[item] || item).join("; ") || "leer"),
         "Satz: " + (val("satz") || "leer"),
         "Nie: " + (val("nie") || "leer"),
         "Sprache: " + val("sprache"),
@@ -299,7 +301,7 @@
       ].join("\n");
       const button = form.querySelector("button[type=submit]");
       button.disabled = true;
-      button.textContent = "Wird gesendet…";
+      button.textContent = ui("Wird gesendet…", "Sending…");
       fetch("/api/anfrage", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
@@ -315,8 +317,8 @@
         .then(({ ok }) => {
           if (!ok) {
             button.disabled = false;
-            button.textContent = "Anfrage senden";
-            errorEl.textContent = "Das hat nicht geklappt. Bitte an kontakt@hitekki.ch schreiben.";
+            button.textContent = ui("Anfrage senden", "Send enquiry");
+            errorEl.textContent = ui("Das hat nicht geklappt. Bitte an kontakt@hitekki.ch schreiben.", "That did not work. Please write to kontakt@hitekki.ch.");
             return;
           }
           form.classList.add("hide");
