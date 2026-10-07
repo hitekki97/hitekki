@@ -10,7 +10,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (request.method === "POST" && url.pathname === "/api/anfrage") {
-      return handleContact(request);
+      return handleContact(request, env);
     }
     if (VIDEO_PATHS.has(url.pathname)) {
       return serveVideo(request, env, url.pathname);
@@ -81,7 +81,7 @@ async function serveVideo(request, env, pathname) {
   return new Response(request.method === "HEAD" ? null : slice, { status: 206, headers });
 }
 
-async function handleContact(request) {
+async function handleContact(request, env) {
   let data;
   try {
     data = await request.json();
@@ -99,6 +99,37 @@ async function handleContact(request) {
   if (name.length < 2 || company.length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || message.length < 10) {
     return json({ ok: false, error: "invalid" }, 400);
   }
+  const text = [
+    `Firma: ${company}`,
+    `Name: ${name}`,
+    `E-Mail: ${email}`,
+    `Telefon: ${phone || "keine Angabe"}`,
+    "",
+    message
+  ].join("\n");
+  if (env.RESEND_API_KEY) {
+    try {
+      const response = await fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${env.RESEND_API_KEY}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          from: "HiTekKi <anfrage@hitekki.ch>",
+          to: ["kontakt@hitekki.ch"],
+          reply_to: email,
+          subject: `Anfrage von ${company}`,
+          text
+        })
+      });
+      const result = await response.json();
+      if (!response.ok) return json({ ok: false, error: "send", message: result.message || "Versand fehlgeschlagen" }, 502);
+      return json({ ok: true });
+    } catch {
+      return json({ ok: false, error: "send" }, 502);
+    }
+  }
   try {
     const response = await fetch("https://formsubmit.co/ajax/kontakt@hitekki.ch", {
       method: "POST",
@@ -106,19 +137,18 @@ async function handleContact(request) {
         "Content-Type": "application/json",
         Accept: "application/json",
         Origin: "https://hitekki.ch",
-        Referer: "https://hitekki.ch/",
+        Referer: "https://hitekki.ch/"
       },
       body: JSON.stringify({
         name,
         company,
         email,
         phone,
-        message,
+        message: text,
         _subject: `Anfrage von ${company}`,
-        _template: "table",
         _captcha: "false",
-        _replyto: email,
-      }),
+        _replyto: email
+      })
     });
     const result = await response.json();
     const success = result.success === true || result.success === "true";
