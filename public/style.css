@@ -436,4 +436,11 @@ details summary { cursor: pointer; color: var(--link); }
 .pay { margin-top: 1rem; padding: 1rem; border-radius: 1rem; background: var(--paper); }
 @media (min-width: 768px) { .choices, .ask-grid { grid-template-columns: 1fr 1fr; } }
 
-.ask-grid { display: grid; gap: .75rem; }
+.hero .price {
+  display: block;
+  margin: 1.5rem auto 0;
+  font-size: 3.4rem;
+  font-weight: 600;
+  letter-spacing: -.04em;
+  line-height: 1;
+}
