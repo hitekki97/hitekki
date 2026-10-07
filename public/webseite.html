@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>HiTekKi · Webseite anfragen</title>
-  <meta name="description" content="Webseiten-Fragebogen von HiTekKi. Ausfüllen ist kostenlos. Abschicken folgt, sobald die Bezahlung verfügbar ist." />
+  <meta name="description" content="Webseiten-Fragebogen von HiTekKi. Ausfüllen und abschicken ist kostenlos." />
   <meta name="theme-color" content="#F5F5F7" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -56,12 +56,15 @@
       <section class="hero span-2">
         <p class="kicker">HiTekKi · Zürich</p>
         <h1>Willkommen zum Webseiten-Fragebogen.</h1>
-        <p class="price">CHF 50</p>
-        <p class="accent">Die Sichtung. Ausfüllen ist kostenlos, abschicken kostet diesen Betrag.</p>
-        <p class="lede">Beantworten Sie hier einige Fragen, um individuell auf Ihre Bedürfnisse eingehen zu können. Die Bezahlung ist noch nicht freigeschaltet. Leer lassen ist in Ordnung. An jeder leeren Stelle recherchiere ich selbst und werde passend kreativ.</p>
+        <p class="accent">Beantworten Sie hier einige Fragen, um individuell auf Ihre Bedürfnisse eingehen zu können.</p>
+        <p class="lede">Ausfüllen und abschicken ist kostenlos. Leer lassen ist in Ordnung. An jeder leeren Stelle recherchiere ich selbst und werde passend kreativ. Persönliche Rückmeldung innert drei Tagen.</p>
       </section>
 
       <section class="tile span-2">
+        <div data-thanks class="thanks hide">
+          <h2>Danke für die Anfrage.</h2>
+          <p class="small">Ich lese sie und melde mich innert drei Tagen. Dateien schicken Sie, falls vorhanden, an kontakt@hitekki.ch.</p>
+        </div>
         <form id="brief">
           <p class="kicker">01</p>
           <h2>Wer schreibt.</h2>
@@ -189,20 +192,23 @@
             <ul class="plain" id="filelist" hidden></ul>
           </div>
 
-          <p class="pay"><strong>Bald verfügbar.</strong> Anfragen bitte vorerst persönlich an <a href="mailto:kontakt@hitekki.ch">kontakt@hitekki.ch</a>. Die Sichtung kostet CHF 50. Die persönliche Rückmeldung erfolgt innert drei Tagen, sobald die Bezahlung offen ist. Kommt ein Auftrag zustande, werden die CHF 50 angerechnet.</p>
+          <p class="small">Dateien bleiben in dieser Anfrage bei Ihnen. Schicken Sie Logo oder Fotos danach an kontakt@hitekki.ch, Betreff Ihre Firma.</p>
+          <button class="submit" type="submit">Anfrage senden</button>
+          <p class="error" data-form-error></p>
+          <p class="fine">Kostenlos. Die Anfrage geht direkt an mich. Keine Bezahlung, keine Anzahlung.</p>
         </form>
       </section>
 
       <section class="tile span-2">
         <details>
           <summary>Bedingungen</summary>
-          <p class="small">HiTekKi Fischer, Einzelunternehmen von Tim Fischer, Bahnhofstrasse 65, 8001 Zürich. Eine UID wurde noch nicht erteilt. Nicht MWST-pflichtig, keine MWST ausgewiesen. CHF 50 für die schriftliche Einordnung, keine Offerte und kein Entwurf. Bei einem späteren Auftrag werden die CHF 50 angerechnet. Bleibt die Rückmeldung aus, wird der Betrag zurückerstattet.</p>
+          <p class="small">HiTekKi Fischer, Einzelunternehmen von Tim Fischer, Bahnhofstrasse 65, 8001 Zürich. Eine UID wurde noch nicht erteilt. Der Fragebogen ist eine kostenlose Anfrage, keine Offerte und kein Auftrag. Eine persönliche Rückmeldung erfolgt innert drei Tagen.</p>
         </details>
       </section>
       <section class="tile span-2">
         <details>
           <summary>Datenschutz</summary>
-          <p class="small">Verantwortlich ist Tim Fischer, HiTekKi Fischer, Bahnhofstrasse 65, 8001 Zürich, kontakt@hitekki.ch. Erfasst werden Firma, Name, E-Mail, freiwillige Telefonnummer, Antworten und freiwillig hochgeladene Dateien. Nur für die Sichtung, nicht für Werbung. Kartendaten erfasst HiTekKi nicht.</p>
+          <p class="small">Verantwortlich ist Tim Fischer, HiTekKi Fischer, Bahnhofstrasse 65, 8001 Zürich, kontakt@hitekki.ch. Erfasst werden Firma, Name, E-Mail, freiwillige Telefonnummer und Ihre Antworten. Nur für die Anfrage, nicht für Werbung. Eine Bezahlung gibt es hier nicht.</p>
         </details>
       </section>
       <section class="tile span-2">
@@ -266,7 +272,57 @@
       list.hidden = files.length === 0;
       list.innerHTML = files.map((file) => "<li>" + file.name + "</li>").join("");
     });
-    document.getElementById("brief").addEventListener("submit", (event) => event.preventDefault());
+    document.getElementById("brief").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const form = event.target;
+      const val = (name) => (form.elements[name] && form.elements[name].value || "").trim();
+      const errorEl = form.querySelector("[data-form-error]");
+      if (val("name").length < 2 || val("firma").length < 2 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val("email"))) {
+        errorEl.textContent = "Firma, Name und eine gültige E-Mail brauche ich, sonst kann ich nicht antworten.";
+        return;
+      }
+      const selected = (sel) => [...document.querySelectorAll(sel + '[aria-pressed="true"]')].map((el) => el.innerText.replace(/\n/g, " — "));
+      const message = [
+        "Webseiten-Fragebogen",
+        "Was sie tun: " + (val("tun") || "leer"),
+        "Webseite: " + (web || "leer") + (val("website") ? " " + val("website") : ""),
+        "Bleiben und weg: " + (val("bleiben") || "leer"),
+        "Domain: " + (domain || "leer") + (val("domain") ? " " + val("domain") : "") + (val("registrar") ? " bei " + val("registrar") : ""),
+        "Aufgabe: " + (selected("#job .choice").join("; ") || "leer"),
+        "Shop: " + (val("shopware") || "leer"),
+        "Bezahlung im Shop: " + (selected("#pay button").join(", ") || "leer"),
+        "Erscheinung: " + (selected("#look .choice").join("; ") || "leer"),
+        "Satz: " + (val("satz") || "leer"),
+        "Nie: " + (val("nie") || "leer"),
+        "Sprache: " + val("sprache"),
+        "Texte: " + val("texte")
+      ].join("\n");
+      const button = form.querySelector("button[type=submit]");
+      button.disabled = true;
+      button.textContent = "Wird gesendet…";
+      fetch("/api/anfrage", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name: val("name"),
+          company: val("firma"),
+          email: val("email"),
+          phone: val("telefon"),
+          message: message
+        })
+      }).then((response) => response.json().then((result) => ({ ok: response.ok && result.ok })))
+        .catch(() => ({ ok: false }))
+        .then(({ ok }) => {
+          if (!ok) {
+            button.disabled = false;
+            button.textContent = "Anfrage senden";
+            errorEl.textContent = "Das hat nicht geklappt. Bitte an kontakt@hitekki.ch schreiben.";
+            return;
+          }
+          form.classList.add("hide");
+          document.querySelector("[data-thanks]").classList.remove("hide");
+        });
+    });
   </script>
 </body>
 </html>
