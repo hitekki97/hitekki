@@ -403,3 +403,20 @@ input:focus, textarea:focus { outline: 2px solid rgba(0, 102, 204, 0.25); border
 
 .pay { margin: .4rem 0 0; padding: 1rem; border-radius: 1rem; background: var(--paper); }
 details summary { cursor: pointer; color: var(--link); }
+
+.choices { display: grid; gap: .75rem; }
+.choice { display: block; width: 100%; text-align: left; border: 1px solid var(--line); border-radius: 1.25rem; background: var(--paper); padding: 1rem 1.05rem; color: inherit; font: inherit; cursor: pointer; }
+.choice strong { display: block; font-size: 1.05rem; }
+.choice span { display: block; margin-top: .35rem; color: var(--muted); font-size: .875rem; line-height: 1.45; }
+.choice[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.choice[aria-pressed="true"] span { color: rgba(245,245,247,.72); }
+.pills { display: flex; flex-wrap: wrap; gap: .45rem; }
+.pills button { border: 0; border-radius: 999px; min-height: 2.4rem; padding: 0 .9rem; background: var(--paper); color: var(--ink); font: inherit; font-size: .8125rem; cursor: pointer; }
+.pills button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+.if-web, .if-yes, .if-domain, .if-shop, .branch { display: none; }
+.if-web.on, .if-yes.on, .if-domain.on, .if-shop.on, .branch.on { display: grid; gap: .85rem; }
+.ask-block { display: grid; gap: .85rem; margin-top: 1.5rem; }
+.pay { margin-top: 1rem; padding: 1rem; border-radius: 1rem; background: var(--paper); }
+@media (min-width: 768px) { .choices, .ask-grid { grid-template-columns: 1fr 1fr; } }
+
+.ask-grid { display: grid; gap: .75rem; }

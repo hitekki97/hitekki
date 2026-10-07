@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>HiTekKi · Webseite anfragen</title>
+  <meta name="description" content="Webseiten-Fragebogen von HiTekKi. Ausfüllen ist kostenlos. Abschicken folgt, sobald die Bezahlung verfügbar ist." />
+  <meta name="theme-color" content="#F5F5F7" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/style.css?v=17" />
+</head>
+<body>
+  <a class="skip" href="#inhalt">Zum Inhalt</a>
+  <header class="bar">
+    <div class="bar-inner">
+      <a class="logo" href="/" aria-label="HiTekKi, Startseite">
+        <span class="mark" aria-hidden="true"><svg viewBox="0 0 76 136"><path d="M64.5 3 42.5 58.5H73L11.5 133 33.5 77.5H3Z"/></svg></span>
+        HiTekKi
+      </a>
+      <nav class="nav" aria-label="Hauptnavigation">
+        <a href="/#leistungen">Leistungen</a>
+        <a href="/#film">Film</a>
+        <a href="/#ablauf">Ablauf</a>
+        <a href="/#fragen">Fragen</a>
+        <a href="/webseite" aria-current="page">Direkt zur Webseiten Anfrage</a>
+      </nav>
+      <div class="tools">
+        <div class="langs" role="group" aria-label="Sprache">
+          <button type="button" data-lang="de" aria-pressed="true">DE</button>
+          <span aria-hidden="true">/</span>
+          <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <a class="cta" href="/#kontakt">Gespräch vereinbaren</a>
+        <button class="menu" type="button" data-menu aria-expanded="false" aria-controls="mobile-nav" aria-label="Menü öffnen">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div id="mobile-nav" class="mobile" data-mobile>
+    <div class="bar-inner" style="display:block">
+      <a href="/#leistungen">Leistungen</a>
+      <a href="/#film">Film</a>
+      <a href="/#ablauf">Ablauf</a>
+      <a href="/#fragen">Fragen</a>
+      <a href="/webseite">Direkt zur Webseiten Anfrage</a>
+      <a class="cta" href="/#kontakt">Gespräch vereinbaren</a>
+    </div>
+  </div>
+
+  <main id="inhalt">
+    <div class="store">
+      <section class="hero span-2">
+        <p class="kicker">HiTekKi · Zürich</p>
+        <h1>Willkommen zum Webseiten-Fragebogen.</h1>
+        <p class="accent">Beantworten Sie hier einige Fragen, um individuell auf Ihre Bedürfnisse eingehen zu können.</p>
+        <p class="lede">Ausfüllen ist kostenlos. Abschicken kostet CHF 50 und ist noch nicht freigeschaltet. Leer lassen ist in Ordnung. An jeder leeren Stelle recherchiere ich selbst und werde passend kreativ.</p>
+      </section>
+
+      <section class="tile span-2">
+        <form id="brief">
+          <p class="kicker">01</p>
+          <h2>Wer schreibt.</h2>
+          <p class="sub">Das Angebot richtet sich an Unternehmen.</p>
+          <div class="ask-grid">
+            <label>Firma <input name="firma" autocomplete="organization" placeholder="Firma"></label>
+            <label>Ihr Name <input name="name" autocomplete="name" placeholder="Name"></label>
+          </div>
+          <label>E-Mail <input name="email" type="email" autocomplete="email" placeholder="name@firma.ch"></label>
+          <label>Telefon <input name="telefon" type="tel" autocomplete="tel" placeholder="+41, freiwillig"></label>
+
+          <div class="ask-block">
+            <p class="kicker">02</p>
+            <h2>Was tun Sie, und für wen.</h2>
+            <label>In eigenen Worten <textarea name="tun" placeholder="Was Sie anbieten, und wer das braucht"></textarea></label>
+          </div>
+
+          <div class="ask-block">
+            <p class="kicker">03</p>
+            <h2>Gibt es schon eine Webseite.</h2>
+            <div class="pills" id="hasweb">
+              <button type="button" data-web="Ja">Ja</button>
+              <button type="button" data-web="Nein">Nein</button>
+              <button type="button" data-web="Nur Profil oder PDF">Nur Profil oder PDF</button>
+            </div>
+            <div class="if-web" id="linkrow"><label>Link <input name="website" placeholder="https://"></label></div>
+            <div class="if-yes" id="stayrow"><label>Was soll bleiben, und was soll weg <textarea name="bleiben" placeholder="Farben, Name, ein Foto. Und was sich veraltet anfühlt"></textarea></label></div>
+          </div>
+
+          <div class="ask-block">
+            <p class="kicker">04</p>
+            <h2>Gibt es schon eine Domain.</h2>
+            <p class="sub">Die Adresse, zum Beispiel firma.ch. Das ist nicht dasselbe wie die Seite darauf.</p>
+            <div class="pills" id="hasdomain">
+              <button type="button" data-domain="Ja, die bleibt">Ja, die bleibt</button>
+              <button type="button" data-domain="Ja, unklar">Ja, unklar</button>
+              <button type="button" data-domain="Nein">Nein</button>
+              <button type="button" data-domain="Weiss ich nicht">Weiss ich nicht</button>
+            </div>
+            <div class="if-domain" id="domainrow">
+              <label>Welche <input name="domain" placeholder="firma.ch"></label>
+              <label>Wo liegt sie <input name="registrar" placeholder="Hostpoint, Infomaniak, Cyon"></label>
+            </div>
+            <p class="small">Eine bestehende Domain kann bleiben. Dafür brauche ich Zugang beim Anbieter, oder Sie stellen die Verbindung selbst um. Sie muss nicht übertragen werden.</p>
+          </div>
+
+          <div class="ask-block">
+            <p class="kicker">05</p>
+            <h2>Was soll die neue Seite tun.</h2>
+            <p class="sub">Mehrere möglich.</p>
+            <div class="choices" id="job">
+              <button type="button" class="choice" data-job="Anfrage"><strong>Anfrage holen</strong><span>Jemand soll sich melden.</span></button>
+              <button type="button" class="choice" data-job="Termin"><strong>Termin ermöglichen</strong><span>Ein Gespräch, kein langes Formular.</span></button>
+              <button type="button" class="choice" data-job="Angebot zeigen"><strong>Ein Angebot zeigen</strong><span>Leistung oder Produkt verständlich machen.</span></button>
+              <button type="button" class="choice" data-job="Erklärung"><strong>Vor dem Gespräch erklären</strong><span>Damit der Anruf kürzer wird.</span></button>
+              <button type="button" class="choice" data-job="Shop"><strong>Shop mit direkter Bezahlung</strong><span>Bestellen und gleich bezahlen, nicht nur anfragen.</span></button>
+            </div>
+            <section class="if-shop" id="shoprow">
+              <label>Was wird verkauft <input name="shopware" placeholder="Produkte, Termine, Gutscheine"></label>
+              <p class="sub">Welche Bezahlung soll direkt möglich sein. Mehrere möglich.</p>
+              <div class="pills" id="pay">
+                <button type="button" data-pay="TWINT">TWINT</button>
+                <button type="button" data-pay="Karte">Karte</button>
+                <button type="button" data-pay="Apple Pay oder Google Pay">Apple Pay oder Google Pay</button>
+                <button type="button" data-pay="PayPal">PayPal</button>
+                <button type="button" data-pay="Rechnung">Rechnung</button>
+                <button type="button" data-pay="Überweisung">Überweisung</button>
+                <button type="button" data-pay="Offen">Offen, HiTekKi schlägt vor</button>
+              </div>
+            </section>
+          </div>
+
+          <div class="ask-block">
+            <p class="kicker">06</p>
+            <h2>Wie soll sie aussehen.</h2>
+            <p class="sub">Mehrere möglich. Clean, cinematisch, am Produkt, an einem Thema.</p>
+            <div class="choices" id="look">
+              <button type="button" class="choice" data-type="clean"><strong>Clean und strukturiert</strong><span>Wenig Schmuck, schnell lesbar.</span></button>
+              <button type="button" class="choice" data-type="film"><strong>Cinematisch</strong><span>Fläche, Bewegung, Eindruck zuerst.</span></button>
+              <button type="button" class="choice" data-type="produkt"><strong>Am Produkt entlang</strong><span>Das Produkt trägt die Seite.</span></button>
+              <button type="button" class="choice" data-type="thema"><strong>An ein Thema angelehnt</strong><span>Ein Material, ein Ort, ein Handwerk.</span></button>
+            </div>
+            <section class="branch" data-for="clean">
+              <label>Wie lang darf sie werden
+                <select name="laenge"><option value="">Offen</option><option>Eine Seite</option><option>Wenige Abschnitte</option><option>Mit Unterseiten</option></select>
+              </label>
+            </section>
+            <section class="branch" data-for="film">
+              <label>Stimmung in drei Wörtern <input name="stimmung" placeholder="ruhig, weit, präzise"></label>
+              <label>Haben Sie schon Film oder Fotos
+                <select name="medien"><option value="">Noch nichts</option><option>Fotos</option><option>Film</option><option>Beides</option></select>
+              </label>
+            </section>
+            <section class="branch" data-for="produkt">
+              <label>Welches Produkt oder welche Linie <input name="produkt" placeholder="Name"></label>
+              <label>Preis auf der Seite
+                <select name="preis"><option value="">Offen</option><option>Ja</option><option>Nur auf Anfrage</option></select>
+              </label>
+              <label>Was daran erklärt werden muss <input name="erklaeren" placeholder="Anwendung, Variante, Unterschied"></label>
+            </section>
+            <section class="branch" data-for="thema">
+              <label>Welches Thema <input name="thema" placeholder="Werkstatt, Alpen, Präzision, ein Material"></label>
+              <label>Warum gerade das <input name="warumthema" placeholder="Ein Satz"></label>
+            </section>
+          </div>
+
+          <div class="ask-block">
+            <p class="kicker">07</p>
+            <h2>Noch zwei Dinge, dann reicht es.</h2>
+            <label>Ein Satz, der stehen muss <input name="satz" placeholder="Sonst leer lassen"></label>
+            <label>Was auf keinen Fall vorkommen soll <input name="nie" placeholder="Ton, Farbe, Behauptung"></label>
+            <label>Sprache
+              <select name="sprache"><option>Deutsch</option><option>Englisch</option><option>Deutsch und Englisch</option></select>
+            </label>
+            <label>Texte
+              <select name="texte"><option>HiTekKi schreibt</option><option>Eigene Texte liegen vor</option><option>Gemischt</option></select>
+            </label>
+          </div>
+
+          <div class="ask-block">
+            <p class="kicker">08</p>
+            <h2>Bilder und Dokumente.</h2>
+            <p class="sub">Als Inspiration oder als Grundlage. Mehrere Dateien möglich.</p>
+            <label>Dateien <input id="files" type="file" multiple accept="image/*,.pdf,.doc,.docx,.ppt,.pptx,.txt,.zip"></label>
+            <ul class="plain" id="filelist" hidden></ul>
+          </div>
+
+          <p class="pay"><strong>Bald verfügbar.</strong> Anfragen bitte vorerst persönlich an <a href="mailto:kontakt@hitekki.ch">kontakt@hitekki.ch</a>. Die Sichtung kostet CHF 50. Die persönliche Rückmeldung erfolgt innert drei Tagen, sobald die Bezahlung offen ist. Kommt ein Auftrag zustande, werden die CHF 50 angerechnet.</p>
+        </form>
+      </section>
+
+      <section class="tile span-2">
+        <details>
+          <summary>Bedingungen</summary>
+          <p class="small">HiTekKi Fischer, Einzelunternehmen von Tim Fischer, Bahnhofstrasse 65, 8001 Zürich. Eine UID wurde noch nicht erteilt. Nicht MWST-pflichtig, keine MWST ausgewiesen. CHF 50 für die schriftliche Einordnung, keine Offerte und kein Entwurf. Bei einem späteren Auftrag werden die CHF 50 angerechnet. Bleibt die Rückmeldung aus, wird der Betrag zurückerstattet.</p>
+        </details>
+      </section>
+      <section class="tile span-2">
+        <details>
+          <summary>Datenschutz</summary>
+          <p class="small">Verantwortlich ist Tim Fischer, HiTekKi Fischer, Bahnhofstrasse 65, 8001 Zürich, kontakt@hitekki.ch. Erfasst werden Firma, Name, E-Mail, freiwillige Telefonnummer, Antworten und freiwillig hochgeladene Dateien. Nur für die Sichtung, nicht für Werbung. Kartendaten erfasst HiTekKi nicht.</p>
+        </details>
+      </section>
+      <section class="tile span-2">
+        <details>
+          <summary>Impressum</summary>
+          <p class="small">HiTekKi Fischer, Tim Fischer, Einzelunternehmen, Bahnhofstrasse 65, 8001 Zürich, Schweiz. E-Mail kontakt@hitekki.ch. Eine UID-Nummer wurde noch nicht erteilt.</p>
+        </details>
+      </section>
+    </div>
+  </main>
+  <footer class="foot">
+    <div class="foot-inner">
+      <div>
+        <a class="logo" href="/">HiTekKi</a>
+        <p>Vertrieb · Technik · Sichtbarkeit. Persönlich betrieben von Tim Fischer in Zürich.</p>
+      </div>
+      <div class="col">
+        <h2>Seite</h2>
+        <a href="/#leistungen">Leistungen</a>
+        <a href="/webseite">Webseiten Anfrage</a>
+      </div>
+      <div class="col">
+        <h2>Kontakt</h2>
+        <p>Bahnhofstrasse 65, 8001 Zürich</p>
+        <a href="mailto:kontakt@hitekki.ch">kontakt@hitekki.ch</a>
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+  <script src="/script.js?v=11"></script>
+  <script>
+    let web = "", domain = "", jobs = [], types = [];
+    document.querySelectorAll("#hasweb button").forEach((btn) => btn.addEventListener("click", () => {
+      web = btn.getAttribute("data-web");
+      document.querySelectorAll("#hasweb button").forEach((b) => b.setAttribute("aria-pressed", b === btn ? "true" : "false"));
+      document.getElementById("linkrow").classList.toggle("on", web !== "Nein");
+      document.getElementById("stayrow").classList.toggle("on", web === "Ja");
+    }));
+    document.querySelectorAll("#hasdomain button").forEach((btn) => btn.addEventListener("click", () => {
+      domain = btn.getAttribute("data-domain");
+      document.querySelectorAll("#hasdomain button").forEach((b) => b.setAttribute("aria-pressed", b === btn ? "true" : "false"));
+      document.getElementById("domainrow").classList.toggle("on", domain.startsWith("Ja"));
+    }));
+    document.querySelectorAll("#job .choice").forEach((btn) => btn.addEventListener("click", () => {
+      const value = btn.getAttribute("data-job");
+      const on = btn.getAttribute("aria-pressed") !== "true";
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      jobs = on ? jobs.concat(value) : jobs.filter((item) => item !== value);
+      document.getElementById("shoprow").classList.toggle("on", jobs.includes("Shop"));
+    }));
+    document.querySelectorAll("#look .choice").forEach((btn) => btn.addEventListener("click", () => {
+      const value = btn.getAttribute("data-type");
+      const on = btn.getAttribute("aria-pressed") !== "true";
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      types = on ? types.concat(value) : types.filter((item) => item !== value);
+      document.querySelectorAll(".branch").forEach((el) => el.classList.toggle("on", types.includes(el.getAttribute("data-for"))));
+    }));
+    document.querySelectorAll("#pay button").forEach((btn) => btn.addEventListener("click", () => {
+      btn.setAttribute("aria-pressed", btn.getAttribute("aria-pressed") === "true" ? "false" : "true");
+    }));
+    document.getElementById("files").addEventListener("change", (event) => {
+      const list = document.getElementById("filelist");
+      const files = [...event.target.files];
+      list.hidden = files.length === 0;
+      list.innerHTML = files.map((file) => "<li>" + file.name + "</li>").join("");
+    });
+    document.getElementById("brief").addEventListener("submit", (event) => event.preventDefault());
+  </script>
+</body>
+</html>
