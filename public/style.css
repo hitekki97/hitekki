@@ -58,6 +58,7 @@ img, svg { display: block; }
   margin-inline: auto;
 }
 .bar-inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -384,7 +385,13 @@ input:focus, textarea:focus { outline: 2px solid rgba(0, 102, 204, 0.25); border
   .sheet { padding: 3.5rem 3rem; }
 }
 @media (min-width: 1024px) {
-  .nav { display: flex; }
+  .nav {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
   .menu { display: none; }
   .grid3 { grid-template-columns: 1fr 1fr 1fr; }
   .grid4 { grid-template-columns: repeat(4, 1fr); }
